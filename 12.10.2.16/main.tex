@@ -100,30 +100,18 @@ columns=fullflexible
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 
 \vspace{3cm}
-\title{12.10.3.17}
+\title{12.10.2.16}
 \author{Lokesh Surana}
 \maketitle
-\section*{Class 12, Chapter 10, Exercise 3.17}
-\begin{enumerate}[start=17]
-\item  Show that the vectors form the vertices $\myvec{2\\-1\\1}$, $\myvec{1\\-3\\-5}$ and $\myvec{3\\-4\\-4}$ of a right angled triangle.
+\section*{Class 12, Chapter 10, Exercise 2.16}
+\begin{enumerate}[start=16]
+\item  Find the position vector of the mid point of the vector joining the points $\vec{P} = \myvec{2\\3\\4}$ and $\vec{Q} = \myvec{4\\-1\\ -2}$.
 \break
-\solution Let's name the triangle $ABC$, where $\vec{A} = \myvec{2\\-1\\1}$, $\vec{B} = \myvec{1\\-3\\-5}$ and $\vec{C} = \myvec{3\\-4\\-4}$. So sides of triangle are:
-
+\solution  The midpoint (Let's say $M$) of the vector joining $\vec{P}$ and $\vec{Q}$ will bisect the line joining $\vec{P}$ and $\vec{Q}$. So we can use section formula to find the position vector of $M$, with m = 1, n = 1.
 \begin{align*}
- \vec{a} &= \vec{C} - \vec{B} = \myvec{2\\-1\\1}\\
- \vec{b} &= \vec{A} - \vec{C} = \myvec{-1\\3\\5}\\
- \vec{c} &= \vec{B} - \vec{A} = \myvec{-1\\2\\-6}
+\vec{M} &= \frac{1}{2} \vec{P} + \frac{1}{2} \vec{Q} \\
+&= \frac{1}{2} \myvec{2\\3\\4} + \frac{1}{2} \myvec{4\\-1\\ -2} \\
+&= \myvec{3\\1\\1}
 \end{align*}
-
-If inner product of two vectors is zero, then they are perpendicular. So, we have:
-
-\begin{align*}
-    \vec{a}^\top \vec{b} &= 2\cdot(-1) + (-1)\cdot3 + 1\cdot5 = 0\\
-    \vec{b}^\top \vec{c} &= (-1)\cdot(-1) + 3\cdot2 + 5\cdot(-6) = -23\\
-    \vec{c}^\top \vec{a} &= (-1)\cdot2 + 2\cdot(-1) + (-6)\cdot1 = -10
-\end{align*}
-
-So, $\vec{a}$ and $\vec{b}$ are perpendicular and therefore triangle $ABC$ is right angled triangle.
-
 \end {enumerate}
 \end{document}
