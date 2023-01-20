@@ -108,15 +108,16 @@ columns=fullflexible
 \item  If are $\vec{a}$, $\vec{b}$, $\vec{c}$ are unit vectors such that $\vec{a} + \vec{b} + \vec{c} = {0}$, find the value of $\vec{a} \cdot \vec{b}$ + $\vec{b} \cdot \vec{c}$ + $\vec{c} \cdot \vec{a}$.
 \break
 \solution The inner product of given unit vectors with sum of all unit vectors (Which is given to be 0) is zero
-\begin{align*}
-    \vec{a} \cdot (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \Rightarrow (\vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}) &= -1 \\
-    \vec{b} \cdot (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \Rightarrow (\vec{b} \cdot \vec{c} + \vec{b} \cdot \vec{a}) &= -1 \\
-    \vec{c} \cdot (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \Rightarrow (\vec{c} \cdot \vec{a} + \vec{c} \cdot \vec{b}) &= -1 \\
+\begin{align}
+    \vec{a}^\top(\vec{a} + \vec{b} + \vec{c}) &= 0 \\
+    \Rightarrow (\vec{a} ^\top \vec{b} + \vec{a} ^\top \vec{c}) &= -1 \\
+    \vec{b} ^\top (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
+    \Rightarrow (\vec{b} ^\top \vec{c} + \vec{b} ^\top \vec{a}) &= -1 \\
+    \vec{c} ^\top (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
+    \Rightarrow (\vec{c} ^\top \vec{a} + \vec{c} ^\top \vec{b}) &= -1 \\
     \break
-    \Rightarrow (\vec{a} \cdot \vec{b} + \vec{b} \cdot \vec{c} + \vec{c} \cdot \vec{a}) &= \frac{-3}{2} \\
-\end{align*}
+    \Rightarrow (\vec{a} ^\top \vec{b} + \vec{b} ^\top \vec{c} + \vec{c} ^\top \vec{a}) &= \frac{-3}{2} \\
+    \Rightarrow \vec{a} \cdot \vec{b} + \vec{b} \cdot \vec{c} + \vec{c} \cdot \vec{a} &= \frac{-3}{2}
+\end{align}
 \end {enumerate}
 \end{document}

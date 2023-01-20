@@ -50,7 +50,7 @@ columns=fullflexible
 \newtheorem{example}{Example}[section]
 \newtheorem{definition}{Definition}[section]
 \newcommand{\BEQA}{\begin{eqnarray}}
-\newcommand{\EEQA}{\end{eqnarray}}
+        \newcommand{\EEQA}{\end{eqnarray}}
 \newcommand{\define}{\stackrel{\triangle}{=}}
 \newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
@@ -76,7 +76,7 @@ columns=fullflexible
 \newcommand{\rect}{\mathop{\mathrm{rect}}}
 \newcommand{\sinc}{\mathop{\mathrm{sinc}}}
 \providecommand{\abs}[1]{\left\vert#1\right\vert}
-\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\res}[1]{\Res\displaylimits_{#1}}
 \providecommand{\norm}[1]{\lVert#1\rVert}
 \providecommand{\mtx}[1]{\mathbf{#1}}
 \providecommand{\mean}[1]{E\left[ #1 \right]}
@@ -87,10 +87,10 @@ columns=fullflexible
 \providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
 \let\StandardTheFigure\thefigure
 \def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
-     \def\rightbox#1{\makebox[0in][r]{#1}}
-     \def\centbox#1{\makebox[0in]{#1}}
-     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
-     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\def\rightbox#1{\makebox[0in][r]{#1}}
+\def\centbox#1{\makebox[0in]{#1}}
+\def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+\def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 
 \vspace{3cm}
 \title{\LaTeX\ 11.10.1.7}
@@ -98,20 +98,14 @@ columns=fullflexible
 \maketitle
 \section*{Class 11, Exercse 10.1}
 
-\begin{enumerate}[start=7]
+Q7. Find the slope of the line, which makes an angle of 30° with the positive direction of y-axis measured anticlockwise.
 
-    \item Find the slope of the line, which makes an angle of 30° with the positive direction of y-axis measured anticlockwise.
+\solution Direction vector of y-axis is $\vec{y} = \myvec{0\\1}$ and direction vector of line is $\vec{l} = \myvec{1\\m}$.
 
-
-    \solution Direction vector of y-axis is $\vec{y} = \myvec{0\\1}$ and direction vector of line is $\vec{l} = \myvec{1\\m}$.
-
-    \begin{align*}
-    cos($30°$) &= \frac{\vec{l}^T  \vec{y}}{|\vec{l}||\vec{y}|}\\
-    &= \frac{m}{\sqrt{1+m^2}}\\
-    \frac{m}{\sqrt{1+m^2}} &= \frac{\sqrt{3}}{2}\\
-    m &= \pm\sqrt{3}\\
-    \end{align*}
-
-    
+\begin{align}
+    \cos(30^\circ) = \frac{\vec{l}^T  \vec{y}}{|\vec{l}||\vec{y}|} = \frac{m}{\sqrt{1+m^2}} \\
+    \frac{m}{\sqrt{1+m^2}} = \frac{\sqrt{3}}{2}                                             \\
+    m = \pm\sqrt{3}
+\end{align}
 
 \end{document}
