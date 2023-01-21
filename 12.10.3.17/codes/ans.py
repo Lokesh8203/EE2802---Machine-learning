@@ -11,7 +11,7 @@ A = a-b
 B = b-c
 C = c-a
 
-#area of triangle from abouve vectors is
+#area of triangle from above vectors is
 area = 1/2*(np.linalg.norm(np.cross(A,B)))
 
 
