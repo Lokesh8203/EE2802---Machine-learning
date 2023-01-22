@@ -25,5 +25,7 @@ B = A + n
 
 x_AB = line_gen(A,B)
 plt.plot(x_AB[0],x_AB[1])
+plt.plot(A[0],A[1],'k.')
+plt.text(A[0],A[1], "A")
 plt.grid()
 plt.savefig("/home/lokesh/EE2802/EE2802-Machine_learning/Python/Quiz_2/figs/1.png")
