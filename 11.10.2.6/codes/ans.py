@@ -28,6 +28,8 @@ x_AB = line_gen(A,A+m)
 
 
 plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
+plt.plot(A[0],A[1],'k.')
+plt.text(A[0],A[1], "A")
 plt.grid()
 plt.tight_layout()
 plt.axis('equal')
