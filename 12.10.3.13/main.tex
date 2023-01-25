@@ -107,15 +107,18 @@ columns=fullflexible
 \begin{enumerate}[start=13]
 \item  If are $\vec{a}$, $\vec{b}$, $\vec{c}$ are unit vectors such that $\vec{a} + \vec{b} + \vec{c} = {0}$, find the value of $\vec{a} \cdot \vec{b}$ + $\vec{b} \cdot \vec{c}$ + $\vec{c} \cdot \vec{a}$.
 \break
-\solution The inner product of given unit vectors with sum of all unit vectors (Which is given to be 0) is zero
+\solution The inner product of given unit vectors with sum of all unit vectors (Which is given to be 0) will be zero.
 \begin{align}
-    \vec{a}^\top(\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \Rightarrow (\vec{a} ^\top \vec{b} + \vec{a} ^\top \vec{c}) &= -1 \\
-    \vec{b} ^\top (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \Rightarrow (\vec{b} ^\top \vec{c} + \vec{b} ^\top \vec{a}) &= -1 \\
-    \vec{c} ^\top (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \Rightarrow (\vec{c} ^\top \vec{a} + \vec{c} ^\top \vec{b}) &= -1 \\
-    \break
+    \label{eq:1} \vec{a}^\top(\vec{a} + \vec{b} + \vec{c}) &= 0 \\
+    \label{eq:2} \Rightarrow (\vec{a} ^\top \vec{b} + \vec{a} ^\top \vec{c}) &= -1\\
+    \label{eq:3} \vec{b} ^\top (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
+    \label{eq:4} \Rightarrow (\vec{b} ^\top \vec{c} + \vec{b} ^\top \vec{a}) &= -1 \\
+    \label{eq:5} \vec{c} ^\top (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
+    \label{eq:6} \Rightarrow (\vec{c} ^\top \vec{a} + \vec{c} ^\top \vec{b}) &= -1 
+\end{align}
+Adding equations \eqref{eq:2}, \eqref{eq:4} and \eqref{eq:6} we get
+\begin{align}
+    \Rightarrow 2(\vec{a} ^\top \vec{b} + \vec{b} ^\top \vec{c} + \vec{c} ^\top \vec{a}) &= -3 \\
     \Rightarrow (\vec{a} ^\top \vec{b} + \vec{b} ^\top \vec{c} + \vec{c} ^\top \vec{a}) &= \frac{-3}{2} \\
     \Rightarrow \vec{a} \cdot \vec{b} + \vec{b} \cdot \vec{c} + \vec{c} \cdot \vec{a} &= \frac{-3}{2}
 \end{align}
