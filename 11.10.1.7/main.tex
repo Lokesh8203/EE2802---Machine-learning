@@ -103,10 +103,26 @@ Q7. Find the slope of the line, which makes an angle of 30° with the positive d
 \solution Direction vector of y-axis is $\vec{e}_2 = \myvec{0\\1}$ and direction vector of line is $\vec{m} = \myvec{1\\m}$.
 
 \begin{align}
-    \cos(30^\circ) = \frac{\vec{m}^T  \vec{y}}{|\vec{m}||\vec{y}|} = \frac{m}{\sqrt{1+m^2}} \\
+    \cos(30^\circ) = \frac{\vec{m}^T  \vec{e}_2}{|\vec{m}||\vec{e}_2|} = \frac{m}{\sqrt{1+m^2}} \\
     \frac{m}{\sqrt{1+m^2}} = \frac{\sqrt{3}}{2}                                             \\
     m = \pm\sqrt{3}
 \end{align}
+
+Let's take the both values of {m} and verify the result.
+
+Case 1: $m = \sqrt{3}$
+\begin{align}
+    \frac{\vec{m}^T  \vec{e}_2}{|\vec{m}||\vec{e}_2|} = \frac{\sqrt{3}}{\sqrt{1+\sqrt{3}^2}} = \frac{\sqrt{3}}{2} \\
+    \implies \frac{\vec{m}^T  \vec{e}_2}{|\vec{m}||\vec{e}_2|} = \cos(30^\circ)
+\end{align}
+
+Case 2: $m = -\sqrt{3}$
+\begin{align}
+    \frac{\vec{m}^T  \vec{e}_2}{|\vec{m}||\vec{e}_2|} = \frac{-\sqrt{3}}{\sqrt{1+\sqrt{3}^2}} = -\frac{\sqrt{3}}{2} \\
+    \implies \frac{\vec{m}^T  \vec{e}_2}{|\vec{m}||\vec{e}_2|} = -\cos(30^\circ)
+\end{align}
+
+$\implies m = \sqrt{3}$
 
 \begin{figure}[!htb]
     \centering
