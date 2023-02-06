@@ -107,20 +107,15 @@ columns=fullflexible
 \begin{enumerate}[start=13]
 \item  If are $\vec{a}$, $\vec{b}$, $\vec{c}$ are unit vectors such that $\vec{a} + \vec{b} + \vec{c} = {0}$, find the value of $\vec{a} \cdot \vec{b}$ + $\vec{b} \cdot \vec{c}$ + $\vec{c} \cdot \vec{a}$.
 \break
-\solution The inner product of given unit vectors with sum of all unit vectors (Which is given to be 0) will be zero.
+\solution We have given that $\vec{a} + \vec{b} + \vec{c} = {0}$, and $\vec{a}$, $\vec{b}$, $\vec{c}$ are unit vectors.
 \begin{align}
-    \label{eq:1} \vec{a}^{\top}(\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \label{eq:2} \Rightarrow (\vec{a} ^{\top} \vec{b} + \vec{a} ^{\top} \vec{c}) &= -1\\
-    \label{eq:3} \vec{b} ^{\top} (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \label{eq:4} \Rightarrow (\vec{b} ^{\top} \vec{c} + \vec{b} ^{\top} \vec{a}) &= -1 \\
-    \label{eq:5} \vec{c} ^{\top} (\vec{a} + \vec{b} + \vec{c}) &= 0 \\
-    \label{eq:6} \Rightarrow (\vec{c} ^{\top} \vec{a} + \vec{c} ^{\top} \vec{b}) &= -1 
+    \implies \norm{\vec{a} + \vec{b} + \vec{c}}^2 &=  0\\    
+    \text{and } \norm{\vec{a}}^2 &= \norm{\vec{b}}^2 = \norm{\vec{c}}^2 = 1
 \end{align}
-Adding equations \eqref{eq:2},\eqref{eq:4} and\eqref{eq:6} we get
 \begin{align}
-    \Rightarrow 2\times(\vec{a} ^{\top} \vec{b} + \vec{b} ^{\top} \vec{c} + \vec{c} ^{\top} \vec{a}) &= -3 \\
-    \Rightarrow (\vec{a} ^{\top} \vec{b} + \vec{b} ^{\top} \vec{c} + \vec{c} ^{\top} \vec{a}) &= \frac{-3}{2} \\
-    \Rightarrow \vec{a} \cdot \vec{b} + \vec{b} \cdot \vec{c} + \vec{c} \cdot \vec{a} &= \frac{-3}{2}
+    \implies \norm{\vec{a}}^2 + \norm{\vec{b}}^2 + \norm{\vec{c}}^2 + 2(\vec{a}^{\top}\vec{b} + \vec{b}^{\top}\vec{c} + \vec{c}^{\top}\vec{a}) &= 0\\
+    \implies 1 + 1 + 1 + 2(\vec{a}^{\top}\vec{b} + \vec{b}^{\top}\vec{c} + \vec{c}^{\top}\vec{a}) &= 0\\
+    \implies \vec{a}^{\top}\vec{b} + \vec{b}^{\top}\vec{c} + \vec{c}^{\top}\vec{a} = -\frac{3}{2}
 \end{align}
 
 Let's verify with a numerical example.
