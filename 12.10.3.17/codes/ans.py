@@ -19,7 +19,7 @@ B = b - c
 C = c - a
 
 #Check if the vectors form a right angled triangle
-if (np.dot(A,B) == 0) or (np.dot(B,C) == 0) or (np.dot(C,A) == 0):
+if (A@B == 0) or (B@C == 0) or (C@A == 0):
     print("The vectors form a right angled triangle")
 else:
     print("The vectors do not form a right angled triangle")
