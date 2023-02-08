@@ -100,7 +100,27 @@ columns=fullflexible
 
 Q.9. Find the equation of the plane through the intersection of the planes $3{x} – {y} + 2{z} – 4 = 0 \text{ and } {x} + {y} + {z} – 2 = 0$ and the point $\myvec{2\\2\\1}$.
 
-\solution The equation of given planes are given by
+\solution The equation of given are given by
+\begin{align}
+	 {P}_1: \vec{n}_1^{\top}{\vec{x}} &= {c}_1\\
+	 {P}_1: \vec{n}_1^{\top}{\vec{x}} &= {c}_2
+\end{align}
+
+The intersection of the planes is given by the solution of the system of equations
+\begin{align}
+    {P}: {P}_1 + \lambda {P}_2 &= 0 \\
+    {P}: \vec{n}_1^{\top}{\vec{x}} - {c}_1 + \lambda\brak{\vec{n}_2^{\top}{\vec{x}} - {c}_2} = &= 0
+\end{align}
+
+If thie plane is passing through a point \vec{P}, then following will be satisfied
+
+\begin{align}
+	{P}: \brak{\vec{n}_1^{\top} - \lambda\vec{n}_2^{\top}}\vec{P} - \brak{{c}_1 + \lambda{c}_2} &= 0
+\end{align}
+
+Solving above equation would give us value of $\lambda$ which can be substituted to get final plane equation. 
+
+The equation of given planes are given by
 \begin{align}
     {P}_1: \myvec{3&-1&2}{\vec{x}} &= 4\\
     {P}_2: \myvec{1&1&1}{\vec{x}} &= 2
@@ -109,7 +129,6 @@ Q.9. Find the equation of the plane through the intersection of the planes $3{x}
 The intersection of the planes is given by the solution of the system of equations
 \begin{align}
     {P}: {P}_1 + \lambda {P}_2 &= 0 \\
-    {P}: \myvec{3&-1&2}{\vec{x}} - 4 + \lambda \myvec{1&1&1}{\vec{x}} -2 &= 0\\
     {P}: \myvec{3+\lambda&-1+\lambda&2+\lambda}{\vec{x}} - {(4 + 2\lambda)} &= 0
 \end{align}
 
