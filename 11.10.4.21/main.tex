@@ -92,44 +92,50 @@ columns=fullflexible
 \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
 \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 
-
 \vspace{3cm}
 \title{11.10.4.21}
 \author{Lokesh Surana}
 \maketitle
 \section*{Class 11, Chapter 10, Exercise 4.21}
 
-Q21. Find equation of the line which is equidistant from parallel lines $9{x} + 6{y} – 7 = 0$ and $3{x} + 2{y} + 6 = 0$
+Q.21. Find equation of the line which is equidistant from parallel lines $9{x} + 6{y} - 7 = 0$ and $3{x} + 2{y} + 6 = 0$.
 
-\solution Equation of lines are
+\solution Let's first rewrite the given equation of line in the form $x + by + c = 0$ where $b, c$ are constants.
+Equation of lines are
 \begin{align}
     {L}_1: 9{x} + 6{y} - 7 &= 0\\
-    \implies \vec{n}_1 = \myvec{9\\6} \text{ and } {c}_1 &= 7\\
+    \implies {L}_1: {x} + \frac{2}{3}{y} - \frac{7}{9} &= 0\\
+    \implies \vec{n}_1 = \myvec{1\\\frac{2}{3}} \text{ and } {c}_1 &= \frac{7}{9}\\
     {L}_2: 3{x} + 2{y} + 6 &= 0 \\
-    \implies \vec{n}_2 = \myvec{3\\2} \text{ and } {c}_2 &= -6
+    \implies {L}_2: {x} + \frac{2}{3}{y} + 2 &= 0\\
+    \implies \vec{n}_2 = \myvec{1\\\frac{2}{3}} \text{ and } {c}_2 &= -2
 \end{align}
 Using the given equidistant condition for desired line
 \begin{align}
     \frac{\abs{  \vec{n}_1^{\top}\vec{x}-{c}_1 }}{\norm{\vec{n}_1}} &= \frac{\abs{  \vec{n}_2^{\top}\vec{x}-{c}_2 }}{\norm{\vec{n}_2}} \\
-    \frac{\abs{\myvec{9&6}\vec{x} - 7}}{\sqrt{117}} &= \frac{\abs{\myvec{3&2}\vec{x} - (-6)}}{\sqrt{13}}\\
-    \abs{\myvec{9&6}\vec{x} - 7} &= 3\abs{\myvec{3&2}\vec{x}  + 6}
+    \frac{\abs{\myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9}}}{\sqrt{\frac{13}{9}}} &= \frac{\abs{\myvec{1&\frac{2}{3}}\vec{x} - (-2)}}{\sqrt{\frac{13}{9}}}\\
+    \abs{\myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9}} &= \abs{\myvec{1&\frac{2}{3}}\vec{x}  + 2}
 \end{align}
 
 Case 1.
 \begin{align}
-    \myvec{9&6}\vec{x} - 7 = 3\myvec{3&2}\vec{x}  + 18 \\
-    \myvec{9&6}\vec{x} - 7 = \myvec{9&6}\vec{x}  + 18 \\
-    \implies -7 = 8
+    \myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9} = \myvec{1&\frac{2}{3}}\vec{x}  + 2\\
+    \implies -\frac{7}{9} = 2\\
     \text{ (not possible) } 
 \end{align}
 
 Case 2.
 \begin{align}
-    \myvec{9&6}\vec{x} - 7 = -3\myvec{3&2}\vec{x}  - 18 \\
-    \myvec{9&6}\vec{x} - 7 = -\myvec{9&6}\vec{x}  - 18 \\
-    \myvec{18&12}\vec{x} = -11\\
-    \text{The equation of desrired line is}\\
-    \myvec{18&12}\vec{x}  + 11 = 0
+    \myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9} &= -\myvec{1&\frac{2}{3}}\vec{x} - 2\\
+    \implies \myvec{2&\frac{4}{3}}\vec{x} &= \frac{7}{9} - 2\\
+    \implies \myvec{2&\frac{4}{3}}\vec{x} &= -\frac{11}{9}
+\end{align}
+
+The equation of line is
+\begin{align}
+    {L}: 2{x} + \frac{4}{3}{y} + \frac{11}{9} &= 0 \\
+    \implies {L}: {x} + \frac{2}{3}{y} + \frac{11}{18} &= 0 \\
+    \implies {L}: 18{x} + 12{y} + 11 &= 0
 \end{align}
 
 \end{document}

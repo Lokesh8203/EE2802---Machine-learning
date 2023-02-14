@@ -7,10 +7,10 @@ from math import *
 def norm(n):
     return sqrt(n[0]*n[0] + n[1]*n[1])
 
-n1 = np.array([9,6])
-n2 = np.array([3,2])
-c1 = 7
-c2 = -6
+n1 = np.array([1,2/3])
+n2 = np.array([1,2/3])
+c1 = 7/9
+c2 = -2
 
 x1 = sp.Symbol('x1')
 x2 = sp.Symbol('x2')
@@ -20,9 +20,8 @@ x = np.array([x1, x2])
 #Case 1
 equation_1 = (n1@x - c1)/norm(n1) - (n2@x - c2)/norm(n2)
 print(equation_1, "= 0")
-#x2 is missing and coefficient of x1 is negligible, so this equation is not correct
+print("This is not possible\n")
 
 #Case 2
-equation_2 = (n1@x - c2)/norm(n1) + (n2@x - c2)/norm(n2)
-
+equation_2 = (n1@x - c1)/norm(n1) + (n2@x - c2)/norm(n2)
 print(equation_2, "= 0")
