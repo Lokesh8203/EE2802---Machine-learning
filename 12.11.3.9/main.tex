@@ -109,17 +109,17 @@ Q.9. Find the equation of the plane through the intersection of the planes $3{x}
 The intersection of the planes is given by the solution of the system of equations
 \begin{align}
     {P}: {P}_1 + \lambda {P}_2 &= 0 \\
-    {P}: \vec{n}_1^{\top}{\vec{x}} - {c}_1 + \lambda\brak{\vec{n}_2^{\top}{\vec{x}} - {c}_2} = &= 0
+    {P}: \vec{n}_1^{\top}{\vec{x}} - {c}_1 + \lambda\brak{\vec{n}_2^{\top}{\vec{x}} - {c}_2} &= 0
 \end{align}
 
 If this plane is passing through a point \vec{P}, then following will be satisfied
 
 \begin{align}
-	{P}: \brak{\vec{n}_1^{\top} - \lambda\vec{n}_2^{\top}}\vec{P} - \brak{{c}_1 + \lambda{c}_2} &= 0
+	{P}: \brak{\vec{n}_1^{\top} + \lambda\vec{n}_2^{\top}}\vec{P} - \brak{{c}_1 + \lambda{c}_2} &= 0\\
+    \implies \lambda = \frac{{c}_1 - {n}_1^{\top}\vec{P}}{{n}_2^{\top}\vec{P} - {c}_2} 
 \end{align}
 
-Solving above equation would give us value of $\lambda$ which can be substituted to get final plane equation. 
-
+To get the value of $\lambda$, we need to substitute the value of $\vec{P}, \vec{n}_1, \vec{n}_2, {c}_1 \text{ and } {c}_2$ in the above equation.
 The equation of given planes are given by
 \begin{align}
     {P}_1: \myvec{3&-1&2}{\vec{x}} &= 4\\
@@ -134,8 +134,8 @@ The intersection of the planes is given by the solution of the system of equatio
 
 These plane shall pass through point $\myvec{2\\2\\1}$, which means that
 \begin{align}
-    \myvec{3+\lambda&-1+\lambda&2+\lambda}{\myvec{2\\2\\1}} - {(4 + 2\lambda)} &= 0\\
-    \lambda = -\frac{2}{3}
+    \lambda &= \frac{4 - \myvec{3&-1&2}{\myvec{2\\2\\1}}}{\myvec{1&1&1}{\myvec{2\\2\\1}} - 2} \\
+    \lambda &= -\frac{2}{3}
 \end{align}
 
 The equation of plane is as follows:
