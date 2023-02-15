@@ -110,31 +110,42 @@ Equation of lines are
     \implies {L}_2: {x} + \frac{2}{3}{y} + 2 &= 0\\
     \implies \vec{n}_2 = \myvec{1\\\frac{2}{3}} \text{ and } {c}_2 &= -2
 \end{align}
-Using the given equidistant condition for desired line
+
+The equation of desired line will be $\vec{n}^{\top}\vec{x} + c = 0$.
+As it is given that lines are parallel, $\vec{n}$ must be same as $\vec{n}_1$ and $\vec{n}_2$.
 \begin{align}
-    \frac{\abs{  \vec{n}_1^{\top}\vec{x}-{c}_1 }}{\norm{\vec{n}_1}} &= \frac{\abs{  \vec{n}_2^{\top}\vec{x}-{c}_2 }}{\norm{\vec{n}_2}} \\
-    \frac{\abs{\myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9}}}{\sqrt{\frac{13}{9}}} &= \frac{\abs{\myvec{1&\frac{2}{3}}\vec{x} - (-2)}}{\sqrt{\frac{13}{9}}}\\
-    \abs{\myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9}} &= \abs{\myvec{1&\frac{2}{3}}\vec{x}  + 2}
+	{L}: \myvec{1&\frac{2}{3}}\vec{x} - c = 0
+\end{align}
+
+The distance between two parallel lines $\vec{n}^{\top}\vec{x} + {c}_1 = 0$ and $\vec{n}^{\top}\vec{x} + {c}_2 = 0$ is given as
+\begin{align}
+	{d} &= \frac{\abs{{c}_1 - {c}_2}}{\norm{n}}
+\end{align}
+
+So for given lines, we need to solve
+\begin{align}
+	\frac{\abs{{c}_1 - {c}}}{\norm{n}} &= \frac{\abs{{c}-{c}_2}}{\norm{n}}\\
+	\implies \frac{\abs{\frac{7}{9} - {c}}}{\norm{\myvec{1\\\frac{2}{3}}}} &= \frac{\abs{{c} + 2}}{\norm{\myvec{1\\\frac{2}{3}}}}
 \end{align}
 
 Case 1.
 \begin{align}
-    \myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9} = \myvec{1&\frac{2}{3}}\vec{x}  + 2\\
-    \implies -\frac{7}{9} = 2\\
+	\frac{7}{9} - {c} &= -{c} + 2\\
+    \implies -\frac{7}{9} &= 2\\
     \text{ (not possible) } 
 \end{align}
 
 Case 2.
 \begin{align}
-    \myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9} &= -\myvec{1&\frac{2}{3}}\vec{x} - 2\\
-    \implies \myvec{2&\frac{4}{3}}\vec{x} &= \frac{7}{9} - 2\\
-    \implies \myvec{2&\frac{4}{3}}\vec{x} &= -\frac{11}{9}
+    \frac{7}{9} - {c} &= {c} + 2\\
+    \implies 2{c} &= -\frac{11}{9}\\
+    \implies {c} &= -\frac{11}{18}
 \end{align}
 
 The equation of line is
 \begin{align}
-    {L}: 2{x} + \frac{4}{3}{y} + \frac{11}{9} &= 0 \\
-    \implies {L}: {x} + \frac{2}{3}{y} + \frac{11}{18} &= 0 \\
+    {L}: \myvec{1&\frac{2}{3}}\vec{x} - c &= 0\\
+    {L}: {x} + \frac{2}{3}{y} + \frac{11}{18} &= 0 \\
     \implies {L}: 18{x} + 12{y} + 11 &= 0
 \end{align}
 
