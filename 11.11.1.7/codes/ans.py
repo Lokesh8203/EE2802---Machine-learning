@@ -3,14 +3,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def norm(x):
-    return np.sqrt(x[0]*x[0] + x[1]*x[1])
-
 u = np.array([-2, -4])
 f = -45
 
 center = -u
-radius = np.sqrt(norm(u)**2 - f)
+radius = np.sqrt(np.linalg.norm(u)**2 - f)
 
 #Generating all the points on the circle
 len = 100
