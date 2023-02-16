@@ -100,14 +100,13 @@ columns=fullflexible
 
 Q.21. Find equation of the line which is equidistant from parallel lines $9{x} + 6{y} - 7 = 0$ and $3{x} + 2{y} + 6 = 0$.
 
-\solution Let's first rewrite the given equation of line in the form $x + by + c = 0$ where $b, c$ are constants.
-Equation of lines are
+\solution Equation of lines are
 \begin{align}
-    {L}_1: 9{x} + 6{y} - 7 &= 0\\
-    \implies {L}_1: {x} + \frac{2}{3}{y} - \frac{7}{9} &= 0\\
+    {L}_1: \myvec{9&6}\vec{x} - 7 &= 0\\
+    \implies {L}_1: \myvec{1&\frac{2}{3}}\vec{x} - \frac{7}{9} &= 0\\
     \implies \vec{n}_1 = \myvec{1\\\frac{2}{3}} \text{ and } {c}_1 &= \frac{7}{9}\\
-    {L}_2: 3{x} + 2{y} + 6 &= 0 \\
-    \implies {L}_2: {x} + \frac{2}{3}{y} + 2 &= 0\\
+    {L}_2: \myvec{3&2}\vec{x} + 6 &= 0\\
+    \implies {L}_2: \myvec{1&\frac{2}{3}}\vec{x} + 2 &= 0\\
     \implies \vec{n}_2 = \myvec{1\\\frac{2}{3}} \text{ and } {c}_2 &= -2
 \end{align}
 
@@ -125,7 +124,7 @@ The distance between two parallel lines $\vec{n}^{\top}\vec{x} = {c}_1$ and $\ve
 So for given lines, we need to solve
 \begin{align}
 	\frac{\abs{{c}_1 - {c}}}{\norm{n}} &= \frac{\abs{{c}-{c}_2}}{\norm{n}}\\
-	\implies \frac{\abs{\frac{7}{9} - {c}}}{\norm{\myvec{1\\\frac{2}{3}}}} &= \frac{\abs{{c} + 2}}{\norm{\myvec{1\\\frac{2}{3}}}}
+	\implies \frac{\abs{\frac{7}{9} - {c}}}{{\sqrt{1^2 + \brak{\frac{2}{3}}^2}}} &= \frac{\abs{{c} + 2}}{{\sqrt{1^2 + \brak{\frac{2}{3}}^2}}}
 \end{align}
 
 Case 1.
@@ -145,8 +144,8 @@ Case 2.
 The equation of line is
 \begin{align}
     {L}: \myvec{1&\frac{2}{3}}\vec{x} - c &= 0\\
-    {L}: {x} + \frac{2}{3}{y} + \frac{11}{18} &= 0 \\
-    \implies {L}: 18{x} + 12{y} + 11 &= 0
+    {L}: \myvec{1&\frac{2}{3}}\vec{x} +  \frac{11}{18}&= 0\\
+    \implies {L}: \myvec{18&12}\vec{x} + 11 &= 0\\
 \end{align}
 
 \begin{figure}[!htb]
