@@ -124,4 +124,4 @@ plt.grid() # minor
 
 plt.axis('equal')
 plt.title('Ellipse')
-plt.show()
+plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/11.11.3.5/figs/ellipse.png')
