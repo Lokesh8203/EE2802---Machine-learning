@@ -1,49 +1,127 @@
-#Find the coordinates of the focii, the vertices, the length of major and minor axes, the eccentricity and the length of the latus rectum of an ellipse whose equation is given by (x^2)/36 + (y^2)/49 = 1
-
+#Python libraries for math and graphics
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
+from numpy import linalg as LA
+from math import *
+import matplotlib.cm as cm
+import matplotlib.legend as Legend
 
-#Generating points on an ellipse
-def ellipse_gen(a,b):
-	len = 50
-	theta = np.linspace(0,2*np.pi,len)
-	x_ellipse = np.zeros((2,len))
-	x_ellipse[0,:] = a*np.cos(theta)
-	x_ellipse[1,:] = b*np.sin(theta)
-	return x_ellipse
+import sys                                          #for path to external scripts
+sys.path.insert(0,'/home/lokesh/EE2802/EE2802-Machine_learning/CoordGeo')
+#local imports
+from line.funcs import *
+from triangle.funcs import *
+from conics.funcs import ellipse_gen
+from params import *
 
-V = np.array([[36, 0], [0, 49]])
-u = np.array([0, 0])
-f = -1764
+def affine_transform(P,c,x):
+    return P@x + c
 
-w, v =  np.linalg.eig(V)
-#w - eigenvalus
-#v eigenvector
+#Input parameters
+V = np.array([[36,0],[0,49]])
+u = np.array(([0,0]))
+f = -1764 
 
-e = np.sqrt(1 - w[0]/w[1]) #eccentricity
+#Input parameters
+a=7
+b=6
+O=np.array([0,0])
 
-n = np.sqrt(w[1])*v[1]
+#Vertices of ellipse
+G = np.array([a,0])
+H = np.array([-a,0])
 
-f_0 = u@np.linalg.inv(V)@u - f
+I = np.array([0,b])
+J = np.array([0,-b])
 
-print("The length of major axis is ", 2*abs(np.sqrt(f_0/w[0])))
-print("The length of minor axis is ", 2*abs(np.sqrt(f_0/w[1])))
+lamda,P = LA.eigh(V)
+if(lamda[1] == 0):      # If eigen value negative, present at start of lamda 
+    lamda = np.flip(lamda)
+    P = np.flip(P,axis=1)
+e = np.sqrt(1- lamda[0]/lamda[1])
+e_square = e**2
+print("Eccentricity of Ellipse is ", e)
 
-vertex_1 = np.array([np.sqrt(f_0/w[0]), 0])
-vertex_2 = np.array([-np.sqrt(f_0/w[0]), 0])
-print("The vertices of ellipse are ", vertex_1, vertex_2)
+n = np.sqrt(lamda[1])*P[:,0]
+c1 = (e*(u.T@n) +np.sqrt( e_square*(u.T@n)**2-lamda[1]*(e_square-1)*(LA.norm(u)**2-lamda[1]*f)))/(lamda[1]*e*(e_square-1))
+c2 = (e*(u.T@n) -np.sqrt( e_square*(u.T@n)**2-lamda[1]*(e_square-1)*(LA.norm(u)**2-lamda[1]*f)))/(lamda[1]*e*(e_square-1))
 
-LR = 2*np.sqrt(abs(f_0*w[0]))/w[1] #latusrectum
-print("The lenght of latus recturm is ", LR)
+F1 = (c1*e_square*n - u)/lamda[1]
+F2 = (c2*e_square*n - u)/lamda[1]
 
-a = 6
-b = 7
-x_ellipse = ellipse_gen(a,b)
+fl1 = LA.norm(F1)
+fl2 = LA.norm(F2)
 
-plt.plot(x_ellipse[0,:],x_ellipse[1,:],label='$ellipse$')
-plt.plot(u[0],u[1],'o')
+m = omat@n
+#Points for Ellipse Major Axis
+ellipAxis_A = 1.5*n
+ellipAxis_B = -1.5*n
+
+#Points for Ellipse Minor Axis
+ellipMinorAxis_A = 1*m 
+ellipMinorAxis_B = -1*m
+
+#points for Latus rectum
+lr1_Ay = np.sqrt((-f-lamda[0]*fl1**2)/lamda[1])
+A = F1 + np.array([0, lr1_Ay])
+B = F1 + np.array([0, -lr1_Ay])
+
+lr2_Ay = np.sqrt((-f-lamda[0]*fl2**2)/lamda[1])
+C = F2 + np.array([0, lr2_Ay])
+D = F2 + np.array([0, -lr2_Ay])
+
+#Generating the ellipse
+elli=  ellipse_gen(a,b) 
+
+# Generating lines 
+x_AB = line_gen(ellipAxis_A, ellipAxis_B)
+x_minor_AB = line_gen(ellipMinorAxis_A, ellipMinorAxis_B)
+x_lr1_AB = line_gen(A , B )
+x_lr2_CD = line_gen(C , D )
+
+#Plotting the ellipse
+plt.plot(elli[0,:],elli[1,:],label='$Ellipse$')
+
+leg_label = "{} {}".format("Major", "Axis")
+plt.plot(x_AB[0,:],x_AB[1,:] ,label = leg_label)
+
+leg_label = "{} {}".format("Minor", "Axis")
+plt.plot(x_minor_AB[0,:],x_minor_AB[1,:] ,label = leg_label)
+
+leg_label = "{} {}".format("Latus", "Rectum1")
+plt.plot(x_lr1_AB[0,:],x_lr1_AB[1,:] ,label = leg_label)
+
+leg_label = "{} {}".format("Latus", "Rectum2")
+plt.plot(x_lr2_CD[0,:],x_lr2_CD[1,:] ,label = leg_label)
+
+
+#Labeling the coordinates
+plot_coords = np.vstack((F1,F2,H,G)).T
+vert_labels = ['$F_1$','$F_2$','$V_1$','$V_2$']
+for i, txt in enumerate(vert_labels):
+    if ( i == 0) :
+      label = "{}".format('$F_1 - Focus 1$' )
+    elif ( i == 1) :
+      label = "{}".format('$F_2 - Focus 2$' )
+    elif ( i == 2) :
+      label = "{}".format('$V_1 - Vertex 1$' )
+    else :
+      label = "{}".format('$V_2 - Vertex 2$' )
+
+    plt.scatter(plot_coords[0,i], plot_coords[1,i], s=15, label = label)
+    plt.annotate(txt, # this is the text
+                (plot_coords[0,i], plot_coords[1,i]), # this is the point to label
+                 textcoords="offset points", # how to position the text
+                 xytext=(8,5), # distance from text to points (x,y)
+                 fontsize=7,
+                 ha='center') # horizontal alignment can be left, right or center
+
 plt.xlabel('$x$')
 plt.ylabel('$y$')
+
+plt.gca().legend(loc='lower left', prop={'size':6},bbox_to_anchor=(0.93,0.6))
 plt.grid() # minor
+
 plt.axis('equal')
-plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/11.11.3.5/figs/circle.png')
+plt.title('Ellipse')
+plt.show()

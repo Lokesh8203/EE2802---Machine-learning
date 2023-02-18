@@ -47,7 +47,6 @@ print("Eccentricity of hyperbola is ", e)
 
 n = np.sqrt(abs(lamda[1]))*P[:,0]
 
-
 F1 = (e * np.sqrt((lamda[1])/(-f*(1-e_square)))) * (-f)/(lamda[1]) * e2
 F2 = -(e * np.sqrt((lamda[1])/(-f*(1-e_square)))) * (-f)/(lamda[1]) * e2
 
