@@ -101,16 +101,24 @@ columns=fullflexible
 Q. AC and BD are chords of a circle which bisect each other. Prove that (i) AC and BD are diameters, (ii) ABCD is a rectangle.
 
 \solution
-Let point $O = \myvec{0\\0}$ be the center of circle, and 
+Let, we have a unit circle with center at origin, i.e. $\vec{O} = \myvec{0\\0}$, and radius $r = 1$.
+The points on circe that we consider are available in Table \eqref{tab:1points}.
+
+\begin{table}[ht!]
+\input{tables/table.tex}
+\caption{}
+\label{tab:points}
+\end{table}
+
 \begin{align}
     \vec{A} &= \myvec{\cos\degree0 \\ \sin\degree0} \\
-    \implies \myvec{A} &= \myvec{1 \\ 0} \\
+    \implies \vec{A} &= \myvec{1 \\ 0} \\
     \vec{B} &= \myvec{\cos\degree90 \\ \sin\degree90} \\
-    \implies \myvec{B} &= \myvec{0 \\ 1} \\
+    \implies \vec{B} &= \myvec{0 \\ 1} \\
     \vec{C} &= \myvec{\cos\degree180 \\ \sin\degree180} \\
-    \implies \myvec{C} &= \myvec{-1 \\ 0} \\
+    \implies \vec{C} &= \myvec{-1 \\ 0} \\
     \vec{D} &= \myvec{\cos\degree270 \\ \sin\degree270} \\
-    \implies \myvec{D} &= \myvec{0 \\ -1}
+    \implies \vec{D} &= \myvec{0 \\ -1}
 \end{align}
 
 \begin{enumerate}
