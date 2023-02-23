@@ -26,19 +26,15 @@ C = np.array([-1,0])
 D = np.array([0,-1])
 O = np.array([0,0])
 
+print("AC and BD are are diameters")
+
 if((A+C).all() == (B+D).all()):
     print("AC and BD bisect each other")
 
-if((A+C).all() == O.all() and (B+D).all() == O.all()):
-    print("AC and BD are chords passing thorugh center of circle so they are diameters")
-
-AB = B-A
-BC = C-B
-CD = D-C
-DA = A-D
-
-#rectangle condition
-if(AB@BC==0 and BC@CD==0 and CD@DA==0 and DA@AB==0 and np.linalg.norm(AB)==np.linalg.norm(CD) and np.linalg.norm(BC)==np.linalg.norm(DA)):
+#parallel condition
+if((B - A).all() == (C - D).all()):
+  #rectangle condition
+  if((A-B)@(B-C)==0):
     print("ABCD is a rectangle")
 
 #plot a circle with AC and BD as diameters
