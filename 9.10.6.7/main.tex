@@ -113,6 +113,7 @@ Q. AC and BD are chords of a circle which bisect each other. Prove that (i) AC a
 
 \solution
 Let, we have a unit circle with center at origin, i.e. $\vec{O} = \myvec{0\\0}$, and radius $r = 1$.
+Let's consider points $A$, $B$, $C$ and $D$ on the circle such that $AC$ and $BD$ are diameter of the circle.
 The points on circle that we consider are available in Table \eqref{tab:points}.
 
 \begin{table}[ht!]
@@ -122,31 +123,40 @@ The points on circle that we consider are available in Table \eqref{tab:points}.
 \end{table}
 
 \begin{enumerate}
-    \item As it is given that chords $AC$ and $BD$ bisect each other, we have
+    \item $AC$ and $BD$ are diameters of the circle. Let's check if they bisect each other,
     \begin{align}
-        \vec{A} + \vec{C} &= \vec{B} + \vec{D} \\
-        \myvec{1 \\ 0} + \myvec{-1 \\ 0} &= \myvec{0 \\ 1} + \myvec{0 \\ -1} \\
-        \myvec{0 \\ 0} &= \myvec{0 \\ 0} 
+        \vec{A} + \vec{C} &= \myvec{1 \\ 0} + \myvec{-1 \\ 0}\\
+        \label{eq:1} &= \myvec{0 \\ 0} \\
+        \vec{B} + \vec{D} &= \myvec{1 \\ 0} + \myvec{-1 \\ 0}\\
+        \label{eq:2} &= \myvec{0 \\ 0} \\
     \end{align}
-    $\implies$ both chords $AC$ and $BD$ pass through the center of the circle.
-    Hence, $AC$ and $BD$ are diameters of the circle.
+    From equation \eqref{eq:1} and \eqref{eq:2} $AC$ and $BD$ bisect each other.
+    Hence, we can say that if two chords bisect each other then they are diameters.
 
-    \item Here the $AC$ and $BD$ i.e. the diagonals of quadrilateral bisect each other. Hence, the quadrilateral $ABCD$ is either a rectangle or a parallelogram.
-    %copilot write a latex to show internal angles of a this ABCD is 90 degree, using cosines rule between sides AB and BC
+    \item Let's check if $ABCD$ is a rectangle.
+    The sides of a rectangle are parallel to each other. Let's check if $AB$ and $BC$ are parallel to each other.
+    \begin{align}
+        \vec{A} - \vec{B} &= \myvec{1 \\ 0} - \myvec{0 \\ 1}\\
+        \label{eq:4} &= \myvec{1 \\ -1} \\
+        \vec{C} - \vec{D} &= \myvec{-1 \\ 0} - \myvec{0 \\ -1}\\
+        \label{eq:5} &= \myvec{-1 \\ 1} \\
+    \end{align}
+    From equation \eqref{eq:4} and \eqref{eq:5}, $AB$ and $CD$ are anti-parallel to each other.
+    $\implies ABCD$ is a parallelogram.
+
+    Now let's check if its a rectangle.
     Let's check the angle between adjacent sides of this quadrilateral, i.e. $AB$ and $BC$.
+
     \begin{align}
-        \vec{AB} = \vec{A} - \vec{B} &= \myvec{1 \\ 0} - \myvec{0 \\ 1} \\
+        \vec{A} - \vec{B} &= \myvec{1 \\ 0} - \myvec{0 \\ 1} \\
         &= \myvec{1 \\ -1} \\
-        \vec{BC} = \vec{B} - \vec{C} &= \myvec{0 \\ 1} - \myvec{-1 \\ 0} \\
+        \vec{B} - \vec{C} &= \myvec{0 \\ 1} - \myvec{-1 \\ 0} \\
         &= \myvec{1 \\ 1} \\
+        \label{eq:6} \brak{\vec{A} - \vec{B}}^\top \brak{\vec{B} - \vec{C}} &=  \myvec{1 & -1} \myvec{1 \\ 1} \\
+        &= 0
     \end{align}
-    Let $\theta$ be the angle between $\vec{AB}$ and $\vec{BC}$, then as per cosine rule
-    \begin{align}
-        \cos\theta &= \frac{\vec{AB} \cdot \vec{BC}}{\norm{\vec{AB}} \norm{\vec{BC}}} \\
-        &= 0 \\
-        \implies \theta &= \degree90
-    \end{align}
-    
+
+    From equation \eqref{eq:6}, we can say that the angle between $AB$ and $BC$ is $90\degree$.
     Hence, the quadrilateral $ABCD$ is a rectangle.
 \end{enumerate}
 
