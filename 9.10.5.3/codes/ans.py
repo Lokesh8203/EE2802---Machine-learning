@@ -3,18 +3,20 @@ import matplotlib.pyplot as plt
 import sympy as sp
 from sympy import *
 
+def norm(A):
+  #A is sp.matrix
+  return sp.sqrt(A[0]*A[0] + A[1]*A[1])
+
 theta = sp.Symbol('theta')
-P = sp.Matrix([sp.cos(sp.pi*8/9), sp.sin(sp.pi*8/9)])
-Q = sp.Matrix([sp.cos(theta), sp.sin(theta)])
+P = sp.Matrix([sp.cos(theta), sp.sin(theta)])
+Q = sp.Matrix([sp.cos(sp.pi*1/6), sp.sin(sp.pi*1/6)])
 R = sp.Matrix([1, 0])
 
-PQ = Q - P
-QR = R - Q
+PQ = P - Q
+RQ = R - Q
 
-theta = sp.solve(sp.Eq(sp.simplify((PQ.dot(QR))), -np.cos(np.pi*5/9)), theta)[0]
-print(theta)
-
-Q = sp.Matrix([sp.cos(theta), sp.sin(theta)])
+theta = sp.solve(sp.Eq(sp.simplify((PQ.dot(RQ))/(norm(PQ)*norm(RQ))) - np.cos(np.pi*5/9)), theta)[0]
+P = sp.Matrix([sp.cos(theta), sp.sin(theta)])
 
 def circ_gen(O,r):
 	len = 50
