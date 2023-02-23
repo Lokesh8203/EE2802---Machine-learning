@@ -1,4 +1,5 @@
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
+\def\inputGnumericTable{}
 \usepackage{setspace}
 \usepackage{gensymb}
 \usepackage{xcolor}
@@ -23,6 +24,16 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning}
 \usepackage{circuitikz}
+       \usepackage[latin1]{inputenc}
+       \usepackage{fullpage}
+       \usepackage{color}
+       \usepackage{array}
+       \usepackage{longtable}
+       \usepackage{calc}
+       \usepackage{multirow}
+       \usepackage{hhline}
+       \usepackage{ifthen}
+	   \usepackage{setspace}
 \let\vec\mathbf
 \DeclareMathOperator*{\Res}{Res}
 \renewcommand\thesection{\arabic{section}}
@@ -102,24 +113,13 @@ Q. AC and BD are chords of a circle which bisect each other. Prove that (i) AC a
 
 \solution
 Let, we have a unit circle with center at origin, i.e. $\vec{O} = \myvec{0\\0}$, and radius $r = 1$.
-The points on circe that we consider are available in Table \eqref{tab:1points}.
+The points on circle that we consider are available in Table \eqref{tab:points}.
 
 \begin{table}[ht!]
 \input{tables/table.tex}
 \caption{}
 \label{tab:points}
 \end{table}
-
-\begin{align}
-    \vec{A} &= \myvec{\cos0\degree \\ \sin0\degree} \\
-    \implies \vec{A} &= \myvec{1 \\ 0} \\
-    \vec{B} &= \myvec{\cos90\degree \\ \sin90\degree} \\
-    \implies \vec{B} &= \myvec{0 \\ 1} \\
-    \vec{C} &= \myvec{\cos180\degree \\ \sin180\degree} \\
-    \implies \vec{C} &= \myvec{-1 \\ 0} \\
-    \vec{D} &= \myvec{\cos270\degree \\ \sin270\degree} \\
-    \implies \vec{D} &= \myvec{0 \\ -1}
-\end{align}
 
 \begin{enumerate}
     \item As it is given that chords $AC$ and $BD$ bisect each other, we have
