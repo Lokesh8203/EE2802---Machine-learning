@@ -1,4 +1,5 @@
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
+\def\inputGnumericTable{}
 \usepackage{setspace}
 \usepackage{gensymb}
 \usepackage{xcolor}
@@ -24,6 +25,16 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning}
 \usepackage{circuitikz}
+\usepackage[latin1]{inputenc}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+\usepackage{setspace}
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
 \DeclareMathOperator*{\Res}{Res}
 \renewcommand\thesection{\arabic{section}}
@@ -102,13 +113,15 @@ Q. The cable of a uniformly loaded suspension bridge hangs in the form of a para
 
 \solution
 Uniformly loaded suspension bridge cable hangs in the form of a parabola facing upwards.
-The length of cable,
-\begin{align}
-    AB = 100m
-\end{align}
-Let's assume that vertex of this parabolic setup is $\myvec{0\\0}$.
 
-This will give us a setup similar to below figure,
+\begin{table}[ht!]
+    \input{tables/table.tex}
+    \caption{points}
+    \label{tab:points}
+\end{table}
+
+This will give us a setup similar to figure \ref{fig:Cable}, 
+
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\columnwidth]{figs/1.png}
