@@ -1,4 +1,5 @@
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
+\def\inputGnumericTable{}
 \usepackage{setspace}
 \usepackage{gensymb}
 \usepackage{xcolor}
@@ -23,6 +24,16 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning}
 \usepackage{circuitikz}
+       \usepackage[latin1]{inputenc}
+       \usepackage{fullpage}
+       \usepackage{color}
+       \usepackage{array}
+       \usepackage{longtable}
+       \usepackage{calc}
+       \usepackage{multirow}
+       \usepackage{hhline}
+       \usepackage{ifthen}
+	   \usepackage{setspace}
 \let\vec\mathbf
 \DeclareMathOperator*{\Res}{Res}
 \renewcommand\thesection{\arabic{section}}
@@ -101,32 +112,37 @@ columns=fullflexible
 Q7. $\angle{PQR} = 100\degree$, where $\vec{P}, \vec{Q}$ and $\vec{R}$ are points on a circle with centre $\vec{O}$. Find $\angle{OPR}$
 
 \solution 
-Let, we have a unit circle with center at origin, i.e. $\vec{O} = \myvec{0\\0}$, and radius $r = 1$.
-The points $\vec{P}, \vec{Q}$ and $\vec{R}$ are on the circle with center $\vec{O}$ and radius $r = 1$, such as
-\begin{align}
-    \vec{P} &= \myvec{\cos160\degree\\\sin160\degree} \\
-    \vec{Q} &= \myvec{\cos\theta\\\sin\theta}  \\
-    \vec{R} &= \myvec{\cos0\degree \\ \sin0\degree} = \myvec{1 \\ 0} \\
-    \implies \vec{PQ} &= \vec{Q} - \vec{P} = \myvec{\cos\theta - \cos160\degree \\ \sin\theta - \sin160\degree} \\
-    \implies \vec{QR} &= \vec{R} - \vec{Q} = \myvec{1 - \cos\theta \\ 0 - \sin\theta} 
-\end{align}
+Let, we have a unit circle with center at origin, i.e. $\vec{O}$, and radius $r = 1$.
+Then let following points be on the circle
+
+\begin{table}[ht!]
+    \input{tables/table.tex}
+    \caption{points}
+    \label{tab:points}
+\end{table}
 
 As per given condition, we have
 \begin{align}
-    \angle{PQR} &= 100\degree 
-    \label{eq:1} \implies \cos100\degree &= \frac{\vec{PQ}^\top \vec{QR}}{\norm{\vec{PQ}} \norm{\vec{QR}}} \\
+    \angle{PQR} &= 100\degree \\
+    \label{eq:1} \implies \cos100\degree &=  \frac{\brak{\vec{P} - \vec{Q}}^\top \brak{\vec{R} - \vec{Q}}}{\norm{\vec{P} - \vec{Q}} \norm{\vec{R} - \vec{Q}}}
 \end{align}
 
 \begin{align}
-    \label{eq:2}   \norm{\vec{PQ}} &= \sqrt{\brak{\cos\theta - \cos160\degree}^2 + \brak{\sin\theta - \sin160\degree}^2} \\
-    \label{eq:3}    \norm{\vec{QR}} &= \sqrt{\brak{1 - \cos\theta}^2 + \brak{0 - \sin\theta}^2} \\
-    \label{eq:4}    \vec{PQ}^\top \vec{QR} &= -1 + \cos\theta + \cos{160\degree - \theta}
+    \label{eq:2} \norm{\vec{P} - \vec{Q}} &= \sqrt{\brak{\cos\theta - \frac{\sqrt{3}}{2}}^2 + \brak{\sin\theta - \frac{1}{2}}^2} \\
+    \norm{\vec{R} - \vec{Q}} &= \sqrt{\brak{1-\frac{\sqrt{3}}{2}}^2 + \brak{-\frac{1}{2}}^2} \\
+    \label{eq:3} &= \sqrt{2 - \sqrt{3}}
 \end{align}
 
+\begin{align}
+     \brak{\vec{P} - \vec{Q}}^\top \brak{\vec{R} - \vec{Q}} &= 
+    \myvec{\cos\theta - \frac{\sqrt{3}}{2}} \cdot \myvec{1 - \frac{\sqrt{3}}{2}} + \myvec{\sin\theta - \frac{1}{2}} \cdot \myvec{-\frac{1}{2}} \\
+    \label{eq:4} &= 1 - \frac{\sqrt{3}}{2} + \cos\theta - \cos\brak{\theta - \frac{\pi}{6}} 
+\end{align}
+    
 Using \eqref{eq:1}, \eqref{eq:2}, \eqref{eq:3} and \eqref{eq:4}, we get
 \begin{align}
-    \theta &= 32.31\degree\\
-    \vec{Q} &= \myvec{\cos32.31\degree \\ \sin32.31\degree} = \myvec{0.999 \\ 0.032}   
+    \theta &= \\
+    \vec{P} &= \myvec{\cos\theta \\ \sin\theta}   
 \end{align}
 
 \begin{figure}[!htb]
