@@ -24,13 +24,14 @@ y = parab_gen(x, a)
 O = np.array([0, 0])
 A = np.array([-50, parab_gen(-50, a)])
 B = np.array([50, parab_gen(50, a)])
+C1 = np.array([[-50, -6]])
 C = np.array([0, -6])
 
 plt.plot(x,y,label='$Hyperbola$', color = 'blue')
 
 #Labeling the coordinates
-plot_coords = np.vstack((O,A,B,C)).T
-vert_labels = ['$O$','$A$','$B$','$C$']
+plot_coords = np.vstack((O,A,B,C, C1)).T
+vert_labels = ['$O$','$A$','$B$','$C$', '$C1$']
 for i, txt in enumerate(vert_labels):
     plt.scatter(plot_coords[0,i], plot_coords[1,i], s=15)
     plt.annotate(txt, # this is the text
@@ -41,7 +42,7 @@ for i, txt in enumerate(vert_labels):
                  ha='center') # horizontal alignment can be left, right or center
 
 ground_lvl1 = np.array([-50, -6])
-ground_lvl2 = np.asarray([50, -6])
+ground_lvl2 = np.array([50, -6])
 ground = line_gen(ground_lvl1, ground_lvl2)
 
 centre_pt1 = np.array([0, -10])
@@ -68,6 +69,7 @@ o = np.array([0, 0])
 A = np.array([[-50, parab_gen(-50, a)]])
 B = np.array([[50, parab_gen(50, a)]])
 C = np.array([[0, -6]])
+C1 = np.array([[-50, -6]])
 D = np.array([[18, parab_gen(18, a)]])
 
 x = np.arange(-50,50,1)
@@ -76,10 +78,10 @@ y = parab_gen(x,a)
 plt.plot(x,y,label='$Parabola$')
 plt.grid()
 plt.plot(ground[0,:],ground[1,:] ,label = 'ground')
-plt.plot(centre_line[0,:], centre_line[1, :], 'g--' )\
+plt.plot(centre_line[0,:], centre_line[1, :], 'g--' )
 
-plot_coords = np.vstack((O,A,B,C,D)).T
-vert_labels = ['$O$','$A$','$B$','$C$', '$D$']
+plot_coords = np.vstack((O,A,B,C,D, C1)).T
+vert_labels = ['$O$','$A$','$B$','$C$', '$D$', '$C1$']
 for i, txt in enumerate(vert_labels):
     plt.scatter(plot_coords[0,i], plot_coords[1,i], s=15)
     plt.annotate(txt, # this is the text
