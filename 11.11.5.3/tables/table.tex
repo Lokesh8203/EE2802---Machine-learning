@@ -145,9 +145,9 @@
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{40pt*\gnumericScale}@{}}x\end{tabular}}
 \ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{171pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{60pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{tabular}[c]{%
               b{\gnumericColA}%
@@ -217,7 +217,7 @@
         & \multicolumn{1}{p{\gnumericColB}|} %
        {\gnumericPB{\raggedright}\gnumbox[l]{Length of shortest wire}}
         & \multicolumn{1}{p{\gnumericColC}|} %
-       {\gnumericPB{\raggedright}\gnumbox[l]{30 m}}
+       {\gnumericPB{\raggedright}\gnumbox[l]{6 m}}
        \\
        \hhline{|-|-|-|}
        \multicolumn{1}{|p{\gnumericColA}|}%
@@ -225,7 +225,7 @@
         & \multicolumn{1}{p{\gnumericColB}|} %
        {\gnumericPB{\raggedright}\gnumbox[l]{End point of cable}}
         & \multicolumn{1}{p{\gnumericColC}|} %
-       {\gnumericPB{\raggedright}\gnumbox[l]{\myvec{-50\\24}}}
+       {\gnumericPB{\raggedright}\gnumbox[l]{\myvec{\frac{d}{2}\\d_1-d_2}}}
        \\
        \hhline{|-|-|-|}
        \multicolumn{1}{|p{\gnumericColA}|}%
@@ -233,15 +233,7 @@
         & \multicolumn{1}{p{\gnumericColB}|} %
        {\gnumericPB{\raggedright}\gnumbox[l]{End point of cable}}
         & \multicolumn{1}{p{\gnumericColC}|} %
-       {\gnumericPB{\raggedright}\gnumbox[l]{\myvec{50\\24}}}
-       \\
-       \hhline{|-|-|-|}
-       \multicolumn{1}{|p{\gnumericColA}|}%
-       {\gnumericPB{\raggedright}\gnumbox[l]{\vec{l}}}
-        & \multicolumn{1}{p{\gnumericColB}|} %
-       {\gnumericPB{\raggedright}\gnumbox[l]{Ground level line}}
-        & \multicolumn{1}{p{\gnumericColC}|} %
-       {\gnumericPB{\raggedright}\gnumbox[l]{\vec{x} = \myvec{0 \\ -6}}}
+       {\gnumericPB{\raggedright}\gnumbox[l]{\myvec{-\frac{d}{2}\\d_1-d_2}}}
        \\
        \hhline{|-|-|-|}
 
