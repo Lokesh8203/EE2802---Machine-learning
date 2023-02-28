@@ -139,12 +139,7 @@ With the assumption of point $O$ being $\myvec{0\\0}$, we'll get
 
 The generic equation of conic is
 \begin{align}
-    g\brak{\vec{x}} = \vec{x}^T\vec{V}\vec{x} + 2\vec{u}^T\vec{x} + f = 0 
-\end{align}
-
-Point $\myvec{0\\0}$ is on conic, so
-\begin{align}
-    \implies f = 0
+    g\brak{\vec{x}} = \vec{x}^{\top}\vec{V}\vec{x} + 2\vec{u}^{\top}\vec{x} + f = 0 
 \end{align}
 
 As conic is upward facing parabola,
@@ -152,28 +147,34 @@ As conic is upward facing parabola,
     \vec{V} = \myvec{1&0\\0&0}.
 \end{align}
 
-As points A and B are on parabola
+Points \vec{O}, \vec{A}, and \vec{B} are on conic, so we have
 \begin{align}
-    \implies \myvec{50&24}\myvec{1&0\\0&0}\myvec{50\\24} + 2\vec{u}^\top\myvec{50\\24} &= 0\\
-    \implies \vec{u}^{\top}\myvec{50\\24} &= -1250\\
-    \label{eq:u1} \implies \myvec{50&24}\vec{u} &= -1250
-\end{align}
-and
-\begin{align}
-    \implies \myvec{-50&24}\myvec{1&0\\0&0}\myvec{-50\\24} + 2\vec{u}^\top\myvec{-50\\24} &= 0\\
-    \implies \vec{u}^{\top}\myvec{-50\\24} &= -1250\\
-    \label{eq:u2} \implies \myvec{-50&24}\vec{u} &= -1250
+	\vec{O}^{\top}\vec{V}\vec{O} + 2\vec{u}^{\top}\vec{O} + f &= 0\\
+	\vec{A}^{\top}\vec{V}\vec{A} + 2\vec{u}^{\top}\vec{A} + f &= 0\\
+	\vec{B}^{\top}\vec{V}\vec{B} + 2\vec{u}^{\top}\vec{B} + f &= 0	 
 \end{align}
 
-From \eqref{eq:u1} and \eqref{eq:u2}, we get
+Rewrite the equations as
 \begin{align}
-    \myvec{50 & 24\\-50 & 24}\vec{u} = &= \myvec{-1250\\-1250}\\ 
-    \implies \vec{u} &= \myvec{0\\-\frac{625}{12}}
-\end{align} 
+	2\vec{O}^{\top}\vec{u} + f &= - \vec{O}^{\top}\vec{V}\vec{O}\\
+	2\vec{A}^{\top}\vec{u} + f &= - \vec{A}^{\top}\vec{V}\vec{A}\\
+	2\vec{B}^{\top}\vec{u} + f &= - \vec{B}^{\top}\vec{V}\vec{B}	
+\end{align}
 
-we get parabola
+This can be formulated as matrix, as follows:
 \begin{align}
-    \label{eq:parab1} \vec{x}^\top\myvec{1&0\\0&0}\vec{x} + 2\myvec{0 & -\frac{625}{12}}\vec{x} &= 0 
+	\myvec{2\vec{O}^{\top} & 1\\ 2\vec{A}^{\top} & 1\\ 2\vec{B}^{\top} & 1}\myvec{\vec{u} \\ f} = -\myvec{\vec{O}^{\top}\vec{V}\vec{O}\\ \vec{A}^{\top}\vec{V}\vec{A}\\ \vec{B}^{\top}\vec{V}\vec{B}}
+\end{align}
+
+Substituting the values of \vec{O}, \vec{A}, and \vec{B} in the above equation, we get
+\begin{align}
+    \myvec{\myvec{0&0}&1\\ \myvec{100&48}&1\\ \myvec{-100&48}&1}\myvec{\vec{u} \\ f} = -\myvec{0\\-1250\\-1250}\\
+    \implies f = 0 \text{ and } \vec{u} = \myvec{0\\-\frac{625}{12}}
+\end{align}
+
+So, equation of parabola is
+\begin{align}
+    \label{eq:parab1}  \vec{x}^{\top}\myvec{1&0\\0&0}\vec{x} + 2\myvec{0&-\frac{625}{12}}\vec{x} = 0 
 \end{align}
 
 At a point $\lambda_1$ m from middle, i.e.
@@ -184,13 +185,13 @@ At a point $\lambda_1$ m from middle, i.e.
 From equation \eqref{eq:parab1}, we get
 \begin{align}
     \myvec{\lambda_1&\lambda_2}\myvec{1&0\\0&0}\myvec{\lambda_1\\\lambda_2} + 2\myvec{0 & -\frac{625}{12}}\myvec{\lambda_1\\\lambda_2} &= 0\\
-    \label{eq:1} \implies \lambda_2 = \frac{625}{12}\lambda_1
+    \label{eq:1} \implies \lambda_2 = \frac{6}{625}{\lambda_1}^2
 \end{align}
 
 Now we have given the point $18 m$ from middle, so $\lambda_1 = 18$ and we have to find $\lambda_2$.
 Using equation \eqref{eq:1}, we get
 \begin{align}
-    \lambda_2 = \frac{625}{12}\lambda_1 = \frac{1944}{625}
+    \lambda_2 = \frac{6}{625}{18}^2 = \frac{1944}{625}
 \end{align}
 
 $\implies$ Length of a supporting wire attached to the roadway $18 m$ from the middle is 
