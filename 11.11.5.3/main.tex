@@ -177,16 +177,30 @@ So, equation of parabola is
     \label{eq:parab1}  \vec{x}^{\top}\myvec{1&0\\0&0}\vec{x} + 2\myvec{0&-\frac{625}{12}}\vec{x} = 0 
 \end{align}
 
-At a point $18$ m from middle, i.e.
+At a point $\lambda_1$ m from middle, i.e.
 \begin{align}
-    \vec{x} = 18\vec{e}_1 + \lambda_2\vec{e}_2
+    \vec{x} = \lambda_1\vec{e}_1 + \lambda_2\vec{e}_2\
 \end{align}
 
-From equation \eqref{eq:parab1}, we get
+Substitute this in parabola equation, we get
 \begin{align}
-    \myvec{18&\lambda_2}\myvec{1&0\\0&0}\myvec{18\\\lambda_2} + 2\myvec{0 & -\frac{625}{12}}\myvec{18\\\lambda_2} &= 0\\
-    \label{eq:1} \implies \lambda_2 = \frac{6}{625}{18}^2\\
-    \implies    \lambda_2 = \frac{1944}{625}
+\brak{\lambda_1\vec{e}_1 + \lambda_2\vec{e}_2}^{\top}\vec{V}\brak{\lambda_1\vec{e}_1 + \lambda_2\vec{e}_2} + 2\vec{u}^{\top}\brak{\lambda_1\vec{e}_1 + \lambda_2\vec{e}_2} + f = 0
+\end{align}
+
+\begin{align}
+    \myvec{\lambda_1&\lambda_2}\vec{V}\myvec{\lambda_1\\\lambda_2} + 2\vec{u}^{\top}\myvec{\lambda_1\\\lambda_2} + f &= 0\\
+    2\vec{u}^{\top}\myvec{\lambda_1\\\lambda_2} = -\brak{f +  \myvec{\lambda_1&\lambda_2}\vec{V}\myvec{\lambda_1\\\lambda_2}}
+\end{align}
+
+Substituting $\vec{u}, \lambda_1, f, \vec{V}$, we get
+\begin{align}
+    2\myvec{0&-\frac{625}{12}}\myvec{\lambda_1\\\lambda_2} = -\myvec{\lambda_1&\lambda_2}\myvec{1&0\\0&0}\myvec{\lambda_1\\\lambda_2}\\
+    \implies \lambda_2 = \frac{6}{625}\brak{\lambda_1}^2
+\end{align}
+
+It is given that $\lambda_1 = 18$
+\begin{align}
+    \implies \lambda_2 = \frac{6}{625}\brak{18}^2 = \frac{1944}{625}
 \end{align}
 
 $\implies$ Length of a supporting wire attached to the roadway $18 m$ from the middle is 
