@@ -177,26 +177,21 @@ So, equation of parabola is
     \label{eq:parab1}  \vec{x}^{\top}\myvec{1&0\\0&0}\vec{x} + 2\myvec{0&-\frac{625}{12}}\vec{x} = 0 
 \end{align}
 
-At a point $\lambda_1$ m from middle, i.e.
+At a point $18$ m from middle, i.e.
 \begin{align}
-    \lambda_1\myvec{1\\0} + \lambda_2\myvec{0\\1}
+    \vec{x} = 18\vec{e}_1 + \lambda_2\vec{e}_2
 \end{align}
 
 From equation \eqref{eq:parab1}, we get
 \begin{align}
-    \myvec{\lambda_1&\lambda_2}\myvec{1&0\\0&0}\myvec{\lambda_1\\\lambda_2} + 2\myvec{0 & -\frac{625}{12}}\myvec{\lambda_1\\\lambda_2} &= 0\\
-    \label{eq:1} \implies \lambda_2 = \frac{6}{625}{\lambda_1}^2
-\end{align}
-
-Now we have given the point $18 m$ from middle, so $\lambda_1 = 18$ and we have to find $\lambda_2$.
-Using equation \eqref{eq:1}, we get
-\begin{align}
-    \lambda_2 = \frac{6}{625}{18}^2 = \frac{1944}{625}
+    \myvec{18&\lambda_2}\myvec{1&0\\0&0}\myvec{18\\\lambda_2} + 2\myvec{0 & -\frac{625}{12}}\myvec{18\\\lambda_2} &= 0\\
+    \label{eq:1} \implies \lambda_2 = \frac{6}{625}{18}^2\\
+    \implies    \lambda_2 = \frac{1944}{625}
 \end{align}
 
 $\implies$ Length of a supporting wire attached to the roadway $18 m$ from the middle is 
 \begin{align}
-    = \lambda_2 + 6 =  \frac{1944}{625} + 6 = \frac{5694}{625} m   
+    = \lambda_2 + d_2 =  \frac{1944}{625} + 6 = \frac{5694}{625} m   
 \end{align}
 
 \begin{figure}[!htb]
