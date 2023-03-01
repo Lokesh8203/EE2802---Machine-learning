@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from numpy import linalg as LA
 from math import *
+import sympy as sp
 
 import sys   
 sys.path.insert(0,'/home/lokesh/EE2802/EE2802-Machine_learning/CoordGeo')
@@ -15,8 +16,17 @@ def parab_gen(x, a):
     y = (x**2)/(4*a)
     return y
 
-#representative figure consruction
+def parab_gen_conic(x):
+    lambda_2 = sp.Symbol('lamda_2')
+    X = np.array([x, lambda_2])
+    eq = sp.simplify(np.transpose(X)@V@X + 2*np.transpose(u)@X + f)
+    y = sp.solve(eq, 'lamda_2')
+    y = np.array(list(y.items()))
+    return y[0][1]
 
+
+
+#representative figure consruction
 x = np.linspace(-50, 50, 200)
 a = 20 #random value of A for representative figure
 y = parab_gen(x, a)
@@ -56,6 +66,7 @@ plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/11.11.5.3/figs/1.png')
 #clear the plot
 plt.clf()
 
+
 #Find the u and f for parabola equation
 V = np.array([[1, 0], [0, 0]])
 
@@ -67,17 +78,23 @@ B = np.array([-50, 24])
 matrix_3 = -np.array([[np.transpose(O)@V@O], [np.transpose(A)@V@A], [np.transpose(B)@V@B]])
 matrix_1 = np.array([[2*np.transpose(O)[0], 2*np.transpose(O)[1], 1], [2*np.transpose(A)[0], 2*np.transpose(A)[1], 1], [2*np.transpose(B)[0], 2*np.transpose(B)[1], 1]])
 
-x = np.linalg.solve(matrix_1, matrix_3)
-x = np.round(x, 2) #rounding off to 2 decimal places
+matrix_2 = np.round(np.linalg.solve(matrix_1, matrix_3),2) #rounding off the matrix entries to 2 decimal places
 
-u = np.array([x[0], x[1]])
-f = x[2]
+u = np.array([matrix_2[0], matrix_2[1]])
+f = matrix_2[2]
 
-a = LA.norm(u)/2
+lambda_1 = sp.Symbol('lamda_1')
+lambda_2 = sp.Symbol('lamda_2')
+
+X = np.array([lambda_1, lambda_2])
+eq = sp.simplify(np.transpose(X)@V@X + 2*np.transpose(u)@X + f)
 
 x = np.arange(-50,50,1)
-y = parab_gen(x,a)
-D = np.array([18, parab_gen(18, a)])
+y = np.zeros(len(x))
+for i in range(len(x)):
+    y[i] = parab_gen_conic(x[i])
+D = np.array([18, parab_gen_conic(18)])
+
 
 plt.plot(x,y,label='$Parabola$')
 plt.grid()
