@@ -111,7 +111,7 @@ columns=fullflexible
 
 Q7. $\angle{PQR} = 100\degree$, where $\vec{P}, \vec{Q}$ and $\vec{R}$ are points on a circle with centre $\vec{O}$. Find $\angle{OPR}$
 
-\solution 
+\solution
 Let, we have a unit circle with center at origin, i.e. $\vec{O}$, and radius $r = 1$.
 Then let following points be on the circle
 
@@ -121,31 +121,40 @@ Then let following points be on the circle
     \label{tab:points}
 \end{table}
 
+Using the theorem from appendix of matrix analysis book,
+Let 
+\begin{align}
+\vec{A} =  \myvec{\cos \theta_1 \\ \sin \theta_1},
+\vec{B} =  \myvec{\cos \theta_2 \\ \sin \theta_2},
+\vec{C} =  \myvec{\cos \theta \\ \sin \theta},
+\end{align}
+ be points on  a unit circle. Then
+\begin{align}
+  \cos ACB&= \frac{\brak{\vec{C}-\vec{A}}^{\top} \brak{\vec{C}-\vec{B}}}{\norm{\vec{C}-\vec{A}}\norm{\vec{C}-\vec{B}}}
+  \\
+  &= \cos \brak{\frac{\theta_1 - \theta_2}{2}}
+\end{align}
+
+
+For our question we have 3 points
+\begin{align}
+    \vec{P} =  \myvec{\cos \theta   \\ \sin \theta},
+    \vec{Q} =  \myvec{\cos \brak{-\frac{\pi}{6}} \\ \sin \brak{-\frac{\pi}{6}}},
+    \vec{R} =  \myvec{\cos 0 \\ \sin 0},
+\end{align}
+on a unit circle. Then using this theorem, we get
+
+\begin{align}
+    \label{eq:1} \cos PQR & = \frac{\brak{\vec{Q}-\vec{P}}^{\top} \brak{\vec{Q}-\vec{R}}}{\norm{\vec{Q}-\vec{P}}\norm{\vec{Q}-\vec{R}}}\\
+    & = \cos \brak{\frac{\theta - 0}{2}}
+\end{align}
+
 As per given condition, we have
 \begin{align}
-    \angle{PQR} &= 100\degree \\
-    \label{eq:1} \implies \cos100\degree &=  \frac{\brak{\vec{P} - \vec{Q}}^\top \brak{\vec{R} - \vec{Q}}}{\norm{\vec{P} - \vec{Q}} \norm{\vec{R} - \vec{Q}}}
-\end{align}
-
-\begin{align}
-    \label{eq:2} \norm{\vec{P} - \vec{Q}} &= \sqrt{\brak{\cos\theta - \frac{\sqrt{3}}{2}}^2 + \brak{\sin\theta - \frac{1}{2}}^2} \\
-    \norm{\vec{R} - \vec{Q}} &= \sqrt{\brak{1-\frac{\sqrt{3}}{2}}^2 + \brak{-\frac{1}{2}}^2} \\
-    \label{eq:3} &= \sqrt{2 - \sqrt{3}}
-\end{align}
-
-\begin{align}
-     \brak{\vec{P} - \vec{Q}}^\top \brak{\vec{R} - \vec{Q}} &= 
-    \myvec{\cos\theta - \frac{\sqrt{3}}{2}} \cdot \myvec{1 - \frac{\sqrt{3}}{2}} + \myvec{\sin\theta - \frac{1}{2}} \cdot \myvec{-\frac{1}{2}} \\
-    \label{eq:4} &= 1 - \frac{\sqrt{3}}{2} + \cos\theta - \cos\brak{\theta - \frac{\pi}{6}} 
-\end{align}
-    
-Using \eqref{eq:1}, \eqref{eq:2}, \eqref{eq:3} and \eqref{eq:4}, we get
-\begin{align}
-	\cos100\degree &= \frac{1 - \frac{\sqrt{3}}{2} + \cos\theta - \cos\brak{\theta - \frac{\pi}{6}} }{\brak{\sqrt{2 - \sqrt{3}}}\brak{\sqrt{\brak{\cos\theta - \frac{\sqrt{3}}{2}}^2 + \brak{\sin\theta - \frac{1}{2}}^2}}}
-\end{align}
-\begin{align}
-    \theta &= \\
-    \vec{P} &= \myvec{\cos\theta \\ \sin\theta}   
+    \angle{PQR}                          & = 100\degree                                                                                                      \\
+    \implies \cos100\degree & =  \cos \brak{\frac{\theta - 0}{2}}\\
+    \theta  & =   200\degree                \\
+    \vec{P} & = \myvec{\cos200\degree \\ \sin200\degree}
 \end{align}
 
 \begin{figure}[!htb]
@@ -154,14 +163,4 @@ Using \eqref{eq:1}, \eqref{eq:2}, \eqref{eq:3} and \eqref{eq:4}, we get
     \caption{circle}
     \label{fig:circle}
 \end{figure}
-
-Now, we'll find the $\angle{OPR}$,
-\begin{align}
-    \vec{OP} &= \vec{P} - \vec{O} = \myvec{\cos160\degree - 0 \\ \sin160\degree - 0} = \myvec{\cos160\degree \\ \sin160\degree} \\
-    \vec{OR} &= \vec{R} - \vec{O} = \myvec{1 - 0 \\ 0 - 0} = \myvec{1 \\ 0} \\
-    \implies \angle{OPR} &= \arccos\brak{\frac{\vec{OP}^\top \vec{OR}}{\norm{\vec{OP}} \norm{\vec{OR}}}} \\
-    &= \arccos\brak{\frac{\cos160\degree + 1}{\sqrt{2}}} \\
-    &= 20.87\degree
-\end{align}
-
 \end{document}
