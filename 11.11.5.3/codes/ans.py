@@ -93,6 +93,8 @@ x = np.arange(-50,50,1)
 y = np.zeros(len(x))
 for i in range(len(x)):
     y[i] = parab_gen_conic(x[i])
+
+#given that lamda_1 = 18
 D = np.array([18, parab_gen_conic(18)])
 
 
