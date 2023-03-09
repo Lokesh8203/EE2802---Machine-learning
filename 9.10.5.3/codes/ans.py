@@ -28,6 +28,16 @@ Q = np.array([np.cos((np.pi)*(-1/6)), np.sin((np.pi)*(-1/6))])
 R = np.array([np.cos(0), np.sin(0)])
 O = np.array([0,0])
 
+#angle POR = 100 degrees
+anglePQR = 100*(np.pi)/180
+theta = sp.Symbol('theta')
+
+#using theorem
+theta = sp.solve(sp.Eq(np.cos(anglePQR), cos((theta - np.arccos(R[0]))/2)), theta)[0]
+theta = float(theta*180/np.pi)
+
+P = np.array([np.cos(theta*(np.pi)/180), np.sin(theta*(np.pi)/180)])
+
 x_circ = circ_gen(O,1)
 plt.plot(x_circ[0,:],x_circ[1,:],label='$circle$')
 
@@ -65,3 +75,7 @@ plt.text(O[0] * (1 + 0.1), O[1] * (1 - 0.1) , 'O')
 plt.text(Q[0] * (1 + 0.2), Q[1] * (1 - 0.2) , r'$\angle POR = 100^{\circ}$')
 
 plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/9.10.5.3/figs/circle.png')
+
+#anlge OPR
+OPR = np.arccos((P-O)@(P-R)/(np.linalg.norm(P-O)*np.linalg.norm(P-R)))
+print('OPR = ', OPR*180/np.pi)

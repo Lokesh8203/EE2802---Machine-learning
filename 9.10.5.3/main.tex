@@ -124,13 +124,13 @@ Then let following points be on the circle
 Using the theorem from appendix of matrix analysis book,
 Let 
 \begin{align}
-\vec{A} =  \myvec{\cos \theta_1 \\ \sin \theta_1},
-\vec{B} =  \myvec{\cos \theta_2 \\ \sin \theta_2},
-\vec{C} =  \myvec{\cos \theta \\ \sin \theta},
+\vec{P} =  \myvec{\cos \theta_1 \\ \sin \theta_1},
+\vec{Q} =  \myvec{\cos \theta_2 \\ \sin \theta_2},
+\vec{R} =  \myvec{\cos \theta \\ \sin \theta},
 \end{align}
  be points on  a unit circle. Then
 \begin{align}
-  \cos ACB&= \frac{\brak{\vec{C}-\vec{A}}^{\top} \brak{\vec{C}-\vec{B}}}{\norm{\vec{C}-\vec{A}}\norm{\vec{C}-\vec{B}}}
+  \cos\angle{PRQ} &= \frac{\brak{\vec{R}-\vec{P}}^{\top} \brak{\vec{R}-\vec{Q}}}{\norm{\vec{R}-\vec{P}}\norm{\vec{R}-\vec{Q}}}
   \\
   &= \cos \brak{\frac{\theta_1 - \theta_2}{2}}
 \end{align}
@@ -145,7 +145,7 @@ For our question we have 3 points
 on a unit circle. Then using this theorem, we get
 
 \begin{align}
-    \label{eq:1} \cos PQR & = \frac{\brak{\vec{Q}-\vec{P}}^{\top} \brak{\vec{Q}-\vec{R}}}{\norm{\vec{Q}-\vec{P}}\norm{\vec{Q}-\vec{R}}}\\
+    \label{eq:1} \cos\angle{PQR} & = \frac{\brak{\vec{Q}-\vec{P}}^{\top} \brak{\vec{Q}-\vec{R}}}{\norm{\vec{Q}-\vec{P}}\norm{\vec{Q}-\vec{R}}}\\
     & = \cos \brak{\frac{\theta - 0}{2}}
 \end{align}
 
@@ -163,4 +163,26 @@ As per given condition, we have
     \caption{circle}
     \label{fig:circle}
 \end{figure}
+
+Now, let's check the $\angle{OPR}$
+\begin{align}
+    \cos\angle{OPR} = \frac{\brak{\vec{P}-\vec{O}}^{\top} \brak{\vec{P}-\vec{R}}}{\norm{\vec{P}-\vec{O}}\norm{\vec{P}-\vec{R}}}\\
+\end{align}
+
+\begin{align}
+    \norm{\vec{P}-\vec{O}} &= \sqrt{\brak{\cos^2 200\degree + \sin^2 200\degree}} = 1\\
+    \norm{\vec{P}-\vec{R}} &= \sqrt{\brak{\cos200\degree - 1}^2 + \brak{\sin^2 200\degree}}\\
+    &= 2\sin100\degree
+\end{align}
+
+So,
+\begin{align}
+    \cos\angle{OPR} &= \frac{\myvec{\cos200\degree\\\sin200\degree}\myvec{\cos200\degree - 1&\sin200\degree}}{2\sin100\degree}\\
+    &= \frac{1 - \cos200\degree}{2\sin100\degree}\\
+    &= \sin100\degree
+\end{align}
+
+\begin{align}
+    \implies \angle{OPR} &= \cos^{-1} \sin100\degree = 10\degree
+\end{align}
 \end{document}
