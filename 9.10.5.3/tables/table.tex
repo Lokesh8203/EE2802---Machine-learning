@@ -144,8 +144,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{90pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{54pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{38pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{110pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{tabular}[c]{%
 	b{\gnumericColA}%
@@ -184,38 +184,37 @@
 %	\multicolumn{3}{c}{That's all folks} \\ \hline 
 %	\endlastfoot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \hhline{|-|-|-}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedright}\gnumbox[l]{\textbf{Parameter}}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\raggedright}\gnumbox[l]{\textbf{Value}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{\textbf{Description}}}
+\\
+\hhline{|-|-|-}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedright}\gnumbox[l]{$\theta_1$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\raggedright}\gnumbox[l]{0}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{$\vec{R} = \myvec{\cos \theta_1 \\ \sin \theta_1} = \myvec{1 \\ 0}$}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedright}\gnumbox[l]{$\theta_2$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\raggedright}\gnumbox[l]{$-\frac{\pi}{6}$}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{$\vec{Q} = \myvec{\cos \theta_2 \\ \sin \theta_2} = \myvec{-\frac{\sqrt{3}}{2} \\ -\frac{1}{2}}$}}
+\\
+\hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
 	{\gnumericPB{\raggedright}\gnumbox[l]{\textbf{O}}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\raggedright}\gnumbox[l]{\myvec{0 \\ 0}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{\myvec{0 \\ 0}}}
-\\
-\hhline{|---|}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{\textbf{R}}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{\myvec{\cos 0 \\ \sin 0}}}
-	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{\myvec{1 \\ 0}}}
-\\
-\hhline{|---|}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{\textbf{Q}}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{\myvec{\cos \brak{-\frac{\pi}{6}} \\ \sin \brak{-\frac{\pi}{6}}}}}
-	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{\myvec{-\frac{\sqrt{3}}{2} \\ -\frac{1}{2}}}}
-\\
-\hhline{|---|}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{\textbf{P}}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{\myvec{\cos \theta\\ \sin \theta}}}
-	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{\myvec{\cos \theta\\ \sin \theta}}}
+	{\gnumericPB{\raggedleft}\gnumbox[r]{center of circle}}
 \\
 \hhline{|-|-|-|}
 \end{tabular}
