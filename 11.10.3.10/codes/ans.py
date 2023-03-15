@@ -41,13 +41,13 @@ A = np.array([h, 3]) #Redifining A
 #Plot the given line
 x = np.linspace(-5, 5, 100)
 
-plt.plot(x, y, label='$(7  -9)x = 19$')
-
 #Plot line formed by A and B
 y = line_gen_vector((B-A)@omat, ((B-A)@omat)@A, x)
-print(((B-A)@omat)@A)
-print(((B-A)@omat)@B)
 plt.plot(x, y, label='$(2  14/9)x = 86/9$')
+
+#Plot the given line
+y = line_gen_vector(n, c, x)
+plt.plot(x, y, label='$(7  -9)x = 19$')
 
 #Plot the points
 plt.plot(A[0], A[1], 'o')
@@ -59,4 +59,4 @@ plt.xlabel('$x$')
 plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid()
-plt.show()
+plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/11.10.3.10/figs/lines.png')
