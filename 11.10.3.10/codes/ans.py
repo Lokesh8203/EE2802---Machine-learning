@@ -60,6 +60,4 @@ plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid()
 plt.axis('equal')
-plt.show()
-
-# plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/11.10.3.10/figs/lines.png')
+plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/11.10.3.10/figs/lines.png')
