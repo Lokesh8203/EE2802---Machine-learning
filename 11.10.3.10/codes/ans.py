@@ -39,7 +39,7 @@ print(h)
 A = np.array([h, 3]) #Redifining A
 
 #Plot the given line
-x = np.linspace(-5, 5, 100)
+x = np.linspace(-7, 12, 100)
 
 #Plot line formed by A and B
 y = line_gen_vector((B-A)@omat, ((B-A)@omat)@A, x)
@@ -59,4 +59,7 @@ plt.xlabel('$x$')
 plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid()
-plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/11.10.3.10/figs/lines.png')
+plt.axis('equal')
+plt.show()
+
+# plt.savefig('/home/lokesh/EE2802/EE2802-Machine_learning/11.10.3.10/figs/lines.png')
