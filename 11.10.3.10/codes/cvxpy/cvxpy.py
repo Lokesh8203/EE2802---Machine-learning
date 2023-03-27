@@ -30,12 +30,14 @@ solution = prob.solve()
 
 print("Foot of perpendicular:", x.value)
 
-B = np.array([x.value[0],x.value[1]]).reshape(2,-1)
 
 #Plotting
+B = np.array([x.value[0],x.value[1]]).reshape(2)
+A = A.reshape(2)
+
 x = np.linspace(-7, 12, 100)
 
-plt.plot(x, line_gen_vector((B-A)@omat, ((B-A)@omat)@A, x), label='Perpendicular')
+plt.plot(x, line_gen_vector((B-A)@omat, ((B-A)@omat)@A, x), label='$(2  14/9)x = 86/9$')
 plt.plot(x, line_gen_vector(n, c, x), label='$(7  -9)x = 19$')
 
 #Plot the points
