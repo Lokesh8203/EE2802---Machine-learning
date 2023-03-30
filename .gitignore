@@ -7,3 +7,6 @@
 *.pyc
 *.xls
 *table.pdf
+*.nav
+*.snm
+*.toc

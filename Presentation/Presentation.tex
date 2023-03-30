@@ -1,0 +1,133 @@
+\documentclass{beamer}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cdf}[2]{\ensuremath{\text{F}_{#1}\left(#2\right)}}
+\providecommand{\erf}[1]{\ensuremath{\text{erf}(#1)}}
+\setbeamertemplate{caption}[numbered]
+% Title page details: 
+\title{Parameteres for financial health of a bank} 
+\author{Lokesh Surana (ES20BTECH11017)}
+\date{\today}
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Problem}
+\begin{frame}{Problem Statement}
+	\textbf{(Financial health of a bank)} Can we assess the financial health of a bank using publicly availalbe balancesheets and information?
+	\begin{enumerate}
+		\item There are a number of financial ratios that can be reviewed to gauge a company's overall financial health and to judge the likelihood that the company will continue as a viable business.
+		\item A bank is a financial institution that is licensed to accept checking and savings deposits and make loans. Banks also provide related services such as individual retirement accounts (IRAs), certificates of deposit (CDs), currency exchange, and many more.
+	\end{enumerate}
+\end{frame}
+
+\section{Risk factors for a bank}
+\subsection{Credit Risk}
+\begin{frame}{Credit Risk}
+	\begin{enumerate}
+	\item Credit risk occurs when borrowers fail to meet contractual obligations. An example is when borrowers default on a principal or interest payment of a loan. Defaults can occur on mortgages, credit cards, and fixed income securities.
+	\item While banks cannot be fully protected from credit risk due to the nature of their business model, they can lower their exposure through diversification.
+	\end{enumerate}
+\end{frame}
+
+\subsection{Operational Risk}
+\begin{frame}{Operational Risk}
+	\begin{enumerate}
+	\item Operational risk is the risk of loss due to errors, interruptions, or damages caused by people, systems, or processes. Losses that occur due to human error include internal fraud or mistakes made during transactions.
+	\item On a larger scale, fraud can occur through breaching a bank’s cybersecurity. This also affects reputation of bank, and so the future buisness growth
+	\end{enumerate}
+\end{frame}
+
+\subsection{Market Risk}
+\begin{frame}{Market Risk}
+	\begin{enumerate}
+	\item Market risk mostly occurs from a bank’s activities in capital markets. It is due to the unpredictability of equity markets, commodity prices, interest rates, and credit spreads. Banks are more exposed if they are heavily involved in investing in capital markets or sales and trading.
+	\item To decrease market risk, diversification of investments is important. Other ways banks reduce their risk include hedging their investments with other, inversely related investments.
+	\end{enumerate}
+\end{frame}
+
+\subsection{Liquidity Risk}
+\begin{frame}{Liquidity Risk}
+	\begin{enumerate}
+		\item Liquidity risk refers to the ability of a bank to access cash to meet funding obligations. Obligations include allowing customers to take out their deposits. The inability to provide cash in a timely manner to customers can result in a snowball effect. If a bank delays providing cash for a few of their customer for a day, other depositors may rush to take out their deposits as they lose confidence in the bank. 
+	\item Short-term liabilities are customer deposits or short-term guaranteed investment contracts (GICs) that the bank needs to pay out to customers. If all or most of a bank’s assets are tied up in long-term loans or investments, the bank may face a mismatch in asset-liability duration.
+	\end{enumerate}
+\end{frame}
+
+
+\section{Financial Ratios}
+\begin{frame}{Banks vs other industries}
+\begin{enumerate}
+\item The analysis of banks and banking stocks has always been particularly challenging because of the fact banks operate and generate profit in such a fundamentally different way than most other businesses. While other industries create or manufacture products for sale, the primary product a bank sells is money.
+\item In next few slides we'll understand some of the important financial ratios for a bank
+\end{enumerate}
+
+\end{frame}
+
+\subsection{Net Non-Performing assets (NPA)}
+\begin{frame}{Net Non-Performing assets (NPA)}
+		\begin{enumerate}
+	\item Gross NPAs shows how much of a bank’s loans are in danger of not being repaid. If interest is not received for 90 days, a loan turns into NPA.
+	\item Net NPAs are those types of NPAs in which the bank has deducted the provision regarding NPAs. Net NPA is a better indicator of the health of the bank. It shows the actual burden of the bank.
+	\item Net NPAs = Gross NPAs – Provisions
+	\item A higher level of NPA increases the amount of provision thereby impacting the profitability of the bank. It also impacts the Net interest margin of the bank.
+	\end{enumerate}
+\end{frame}
+
+\subsection{Net Interest Margin}
+\begin{frame}{Net Interest Margin}
+	\begin{enumerate}
+	\item Net interest reveals a bank’s net profit on interest-earning assets, such as loans or investment securities. Higher margins generally indicate a more profitable bank. A number of factors can significantly impact net interest margin, including interest rates charged by the bank and the source of the bank's assets.
+	\item Net Interest Margin = $\frac{(\text{Investment Income – Interest Expenses})}{\text{Average Earning Assets}}$
+	\end{enumerate}
+\end{frame}
+
+\subsection{Loan-to-Assets Ratio}
+\begin{frame}{Loan-to-Assets Ratio}
+		\begin{enumerate}
+	\item Banks that have a relatively higher loan-to-assets ratio derive more of their income from loans and investments, while banks with lower levels of loans-to-assets ratios derive a relatively larger portion of their total incomes from more-diversified, noninterest-earning sources, such as asset management or trading. 
+	\item Banks with lower loan-to-assets ratios may fare better when interest rates are low or credit is tight. They may also fare better during economic downturns.
+	\end{enumerate}
+\end{frame}
+
+\subsection{Return-on-Assets Ratio}
+\begin{frame}{Return-on-Assets Ratio}
+		\begin{enumerate}
+	\item The return-on-assets (ROA) ratio is frequently applied to banks because the cash flow analysis is more difficult to accurately construct. 
+	\item The ratio is considered an important profitability ratio, indicating the per-dollar profit a company earns on its assets. Since bank assets largely consist of money the bank loans, the per-dollar return is an important metric of bank management. 
+	\item The ROA ratio is a company's net, after-tax income divided by its total assets. An important point to note is since banks are highly leveraged, even a relatively low ROA of $1$ to $2\%$ may represent substantial revenues and profit for a bank.
+	\end{enumerate}
+\end{frame}
+
+\subsection{CASA ratio}
+\begin{frame}{CASA ratio}
+		\begin{enumerate}
+	\item CASA ratio of a bank is the ratio of deposits in current and saving accounts to total deposits. A higher CASA ratio indicates a lower cost of funds, because banks do not usually give any interests on current account deposits and the interest on saving accounts is usually very low $3$ - $4\%$
+	\item CASA Ratio = $\frac{\text{CASA Deposits}}{\text{Total Deposits}}$
+	\end{enumerate}
+\end{frame}
+
+\subsection{Capital Adequacy Ratio (CAR)}
+\begin{frame}{Capital Adequacy Ratio (CAR)}
+		\begin{enumerate}
+	\item Capital Adequacy Ratio (CAR) is also known as Capital to Risk (Weighted) Assets Ratio (CRAR), is the ratio of a bank's capital to its risk.
+	\item It is a measure of a bank's capital. It is expressed as a percentage of a bank's risk-weighted credit exposures. The enforcement of regulated levels of this ratio is intended to protect depositors and promote stability and efficiency of financial systems around the world.
+	\item Two types of capital are measured: tier one capital, which can absorb losses without a bank being required to cease trading, and tier two capital, which can absorb losses in the event of a winding-up and so provides a lesser degree of protection to depositors.
+	\item CAR = $\frac{\text{Tier 1 Capital + Tier 2 Capital}}{\text{risk-weighted asset}}$
+	\end{enumerate}
+\end{frame}
+
+\end{document}
