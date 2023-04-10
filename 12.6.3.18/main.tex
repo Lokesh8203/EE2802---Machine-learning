@@ -109,7 +109,7 @@ Q. A rectangular sheet of tin 45 cm by 24 cm is to be made into a box without to
     \label{fig:rectangular sheet}
 \end{figure}
 
-Here is the figure of how the rectangular sheet will look if we cut equal sized square from each corner.
+Here is the figure of how the rectangular sheet will look if we cut equal sized square from each corner, ref \eqref{fig:rectangular sheet cut}
 
 \begin{figure}[!htb]
     \centering
@@ -132,40 +132,54 @@ From the figure , we can see that
     0 < x \leq \min\brak{a,b}/2
 \end{align}
 
-Now, we have to find the side of the square to be cut off so that the volume of the box is maximum.
-So we have to find maxima of equation \eqref{eq:volume}.
+Now, we have to find the side of the square to be cut off so that the volume of the box is maximum. So we have to find maxima of equation \eqref{eq:volume}.
+
+Finding the maxima of equation \eqref{eq:volume} is same as finding the minima of equation \eqref{eq:volume} multiplied by $-1$, i.e. \eqref{eq:neg_volume}).
+
+\begin{align}
+    \label{eq:neg_volume}
+    f\brak{x} &= -4x^3 + 2\brak{a+b}x^2 - abx
+\end{align}
+
+Using the given values of $a$ and $b$, we get
+\begin{align}
+    \label{eq:neg_volume2}
+    f\brak{x} &= -4x^3 + 138x^2 - 1080x
+\end{align}
 
 The derivative of the function is
 \begin{align}
-    \nabla f\brak{x} &= 12x^2 - 4\brak{a+b}x + ab 
+    f^\prime\brak{x} &= -12x^2 + 276x - 1080 
 \end{align}
 
-For the given values of $a$ and $b$, the derivative of the function is
+Minima of \eqref{eq:neg_volume2} using gradient descent method is
+
 \begin{align}
-    \nabla f\brak{x} &= 12x^2 - 4\brak{45+24}x + 45 \times 24\\ 
-    &= 12x^2 - 276x + 1080\\
-    &= 12\brak{x-18}{x-5}
+	\lambda_{n+1} &= \lambda_n - \alpha f^\prime\brak{\lambda_n}\\
+    \label{eq:grad_dec/eq1}
+    &= \lambda_n - \alpha \brak{-12\lambda_n^2 + 276\lambda_n - 1080}\\
 \end{align}
 
-We have to find maximum value of the function for $x$ in the range $0 < x \leq 12$, from \eqref{eq:x_range}.
-Here is the plot of function looks line in the given range.
+Choosing
+\begin{enumerate}
+ \item $\alpha$ = 0.001
+ \item precision = 0.0000001
+ \item n = 10000000 
+ \item $\lambda_0$ = 0
+\end{enumerate}
+
+\begin{align}
+    \lambda_{min} &= 5
+\end{align}
+
+$x=5$ is the point of minima of the $f\brak{x}$.
+So, it's point of maxima for the volume of the box.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\columnwidth]{figs/plot.png}
-    \caption{Plot of function}
+    \caption{Plot of volume function}
     \label{fig:plot of function}
 \end{figure}
-
-Critical point of the function is $x=18$ and $x=5$.
-Since $x=18$ is not in the given range, we can ignore it.
-
-\begin{align}
-    \nabla^2 f\brak{x} &= 24x - 276\\
-    \nabla^2 f\brak{5} &= 24 \times 5 - 276\\ 
-    &= -156 < 0
-\end{align}
-
-So, $x=5$ is the point of maixma of the function.
 
 \end{document}
