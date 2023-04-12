@@ -98,7 +98,7 @@ columns=fullflexible
 \maketitle
 \section*{Class 12, Chapter 6, Exercise 3.18}
 
-Q. A rectangular sheet of tin 45 cm by 24 cm is to be made into a box without top, by cutting off square from each corner and folding up the flaps. What should be the side of the square to be cut off so that the volume of the box is maximum ?
+Q. A rectangular sheet of tin 45 cm by 24 cm is to be made into a box without top, by cutting off square from each corner and folding up the flaps. What should be the side of the square to be cut off so that the volume of the box is maximum?
 
 \solution The length of sheet is 45 cm $\brak{\text{Let } a}$ and breadth of sheet is 24 cm $\brak{\text{Let }b}$.
 
@@ -133,23 +133,26 @@ From the figure , we can see that
 \end{align}
 
 Now, we have to find the side of the square to be cut off so that the volume of the box is maximum. So we have to find maxima of equation \eqref{eq:volume}.
+Finding the maxima of equation \eqref{eq:volume} is same as finding the minima of equation \eqref{eq:volume} multiplied by $-1$, i.e. \eqref{eq:optimization}.
 
-Finding the maxima of equation \eqref{eq:volume} is same as finding the minima of equation \eqref{eq:volume} multiplied by $-1$, i.e. \eqref{eq:neg_volume}).
 
+This gives us optimization problem as
 \begin{align}
-    \label{eq:neg_volume}
-    f\brak{x} &= -4x^3 + 2\brak{a+b}x^2 - abx
+    \label{eq:optimization}
+    \min_{\lambda} f\brak{\lambda} = \brak{-4\lambda^3 + 2\brak{a+b}\lambda^2 - ab\lambda}\\
+    \text{s.t. } \lambda \in \brak{0, \min\brak{a,b}/2}\\
+    \text{i.e.} \lambda \in \brak{0, 12}
 \end{align}
 
 Using the given values of $a$ and $b$, we get
 \begin{align}
     \label{eq:neg_volume2}
-    f\brak{x} &= -4x^3 + 138x^2 - 1080x
+    f\brak{\lambda} &= -4\lambda^3 + 138\lambda^2 - 1080\lambda
 \end{align}
 
 The derivative of the function is
 \begin{align}
-    f^\prime\brak{x} &= -12x^2 + 276x - 1080 
+    f^\prime\brak{\lambda} &= -12\lambda^2 + 276\lambda - 1080 
 \end{align}
 
 Minima of \eqref{eq:neg_volume2} using gradient descent method is
