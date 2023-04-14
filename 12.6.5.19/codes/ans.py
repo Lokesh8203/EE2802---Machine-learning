@@ -46,10 +46,10 @@ plt.text(numpy.cos(theta),-numpy.sin(theta),'$D$')
 #show the plot
 plt.savefig('12.6.5.19/figs/circle_rectangle.png')
 
-x = cp.Variable()
+x = cp.Variable(pos=True, name = "x")
 
 #Cost function
-f =  -16*x**4 + 16*x**2
+f =  -16*cp.power(x,4) + 16*cp.power(x, 2)
 obj = cp.Maximize(f)
 
 #Constraints
