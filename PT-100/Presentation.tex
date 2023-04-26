@@ -101,7 +101,10 @@ columns=fullflexible
 
 \section{Introduction}
 \begin{frame}{Aim}
-    The modeling of the voltage-temperature characteristics of the PT-100 RTD (Resistance Temperature Detector) using least squares method.
+    \begin{enumerate}
+        \item The modeling of the voltage-temperature characteristics of the PT-100 RTD (Resistance Temperature Detector) using least squares method.
+        \item In next slide we have training and validation data. This data have been recorded using voltage readings from serial monitor of arduino and temperature readings from a thermometer. 
+    \end{enumerate}
 \end{frame}
 
 \section{Data}
@@ -122,12 +125,20 @@ columns=fullflexible
     \end{table}
 \end{frame}
 
+\begin{frame}{Experiment}
+    \begin{figure}[!ht]
+         \centering
+         \includegraphics[width=0.6\columnwidth]{figs/setup.jpg}
+     \end{figure}
+     PT-100 circuit is connected to arduino 3.3V and ground pins. The 200$\Omega$ resistor is being used in circuit. The voltage/sensorvalue is read from A0 pin of arduino.
+ \end{frame}
+
 \section{Model}
 \begin{frame}{Model}
     For the PT-100, we use the Callendar-Van Dusen equation
     \begin{align}
-        V(T)       & = V(0)\brak{1+AT+BT^2} \\
-        \implies c & = \vec{n}^\top\vec{x}  \\
+        V(T)       = V(0)\brak{1+AT+BT^2} \\
+        \text{this can be written in the form of } c  = \vec{n}^\top\vec{x}  \\
         c = V(T),\ \vec{n} = V(0)\myvec{1   \\A\\B},\ \vec{x} = \myvec{1\\T\\T^2}
     \end{align}
 \end{frame}
@@ -149,8 +160,6 @@ columns=fullflexible
     \begin{align}
         \vec{n} = \myvec{1.423 \\1.472\times10^{-3}\\9.8158\times10^{-6}}
     \end{align}
-
-    The approximation is shown in Figures further.
 \end{frame}
 
 \begin{frame}{Model}
@@ -160,13 +169,13 @@ Thus, the approximate model is given by
          & + \brak{9.8158\times10^{-6}}T^2
 \end{align}
 
-Equation 8 can be written in the form of,
+Equation 8 is in the form of,
 \begin{align}
     ax^2 + bx + c=0 
 \end{align}
 
 Now, we can use the quadratic formula to find the value of the temperature.
-That has been implemented in arduino.
+This has been implemented in arduino.
 
 \end{frame}
 
