@@ -13,11 +13,12 @@ void loop()
 {
     int sensorValue = analogRead(A0);             // resistance
     double voltage = ((3.3 * sensorValue) / 666); // voltage divider rule
-    double a = 0.0000098158;
-    double b = 0.001472;
-    double c = (1.423 - voltage);
+    // double a = 0.0000012524;
+    double b = 0.00291;
+    double c = (-1.48 + voltage);
 
-    double Temp = (-b + sqrt((b * b - 4 * a * c))) / (2 * a);
+    //  double Temp = (- b + sqrt((b*b - 4*a*c)))/ (2*a) ;
+    double Temp = c / b;
     Serial.println(sensorValue);
     Serial.println(voltage);
     Serial.println(Temp);

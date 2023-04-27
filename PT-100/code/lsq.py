@@ -1,41 +1,37 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import padasip as pa
 
-A = np.loadtxt('training_data.txt')
-X = np.hstack((np.ones((A.shape[0],1)),A[:,[0]],A[:,[0]]**2))
-T = A[:,[0]]
-C = A[:,[1]]
+# Training the Model - Model Training
+Train_data = np.loadtxt('PT-100/code/training_data.txt')
+n1, m1 = Train_data.shape
+T = Train_data[:,0]
+X = np.vstack((np.ones((1,n1)),T))
+Y = Train_data[:,[1]]
 
-#Least squares method
-v, av, bv = np.linalg.lstsq(X, C, rcond=None)[0]
-n_lsq = np.zeros((3,1))
-n_lsq[0][0] = v
-n_lsq[1][0] = av
-n_lsq[2][0] = bv
-print(n_lsq)
+# Least Squares Method - Model Training
+n = np.linalg.lstsq(X.T, Y, rcond=None)[0]
+print(n)
 
-#Plot both the results
-plt.plot(T, X@n_lsq)
-plt.plot(T, C, 'k.')
+plt.plot(T, X.T @n, label= 'Fitted line')
+plt.scatter(T, Y, label='Original data', color = 'red')
 plt.grid()
-plt.ylabel('Output Voltage (V)')
-plt.xlabel('Temperature ($^{\circ}$C)')
-plt.tight_layout()
+plt.ylabel("Voltage (in Volts)")
+plt.xlabel("Temperature (in $^{\circ}$C)")
+plt.legend()
 plt.savefig('train.png')
+plt.close()
 
-#Close current figure(s)
-plt.close('all')
+# Testing the Model - Model Evaluation
+Test_data = np.loadtxt('PT-100/code/validation_data.txt')
+n2, m2 = Test_data.shape
+T_test = Test_data[:,0]
+X_test = np.vstack((np.ones((1,n2)),T_test))
+Y_test = Test_data[:,[1]]
 
-#Plot for validation
-B = np.loadtxt('validation_data.txt')
-Xv = np.hstack((np.ones((B.shape[0],1)),B[:,[0]],B[:,[0]]**2))
-Cv = B[:,[1]]
-Tv = B[:,[0]]
-plt.plot(Tv, Xv@n_lsq)
-plt.plot(Tv, Cv, 'k.')
-plt.ylabel('Output Voltage (V)')
-plt.xlabel('Temperature ($^{\circ}$C)')
+plt.plot(T_test, X_test.T @n, label= 'Fitted line')
+plt.scatter(T_test, Y_test, label='Original data', color = 'red')
+plt.ylabel("Voltage (in Volts)")
+plt.xlabel("Temperature (in $^{\circ}$C)")
+plt.legend()
 plt.grid()
-plt.tight_layout()
-plt.savefig('valid.png')
+plt.savefig("test.png")

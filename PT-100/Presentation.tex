@@ -12,6 +12,7 @@
 \usepackage{multirow}
 \usepackage{verbatim}
 \usepackage{hyperref}
+\usepackage{circuitikz}
 \usepackage{listings}
 \usepackage{color}    
 \usepackage{array}    
@@ -107,11 +108,61 @@ columns=fullflexible
     \end{enumerate}
 \end{frame}
 
+\section{Circuit}
+\begin{frame}{Circuit Diagram}
+    \begin{figure}[!ht]
+        \centering
+        \begin{circuitikz} \draw
+            (0,0) to[battery1, l=$5\ V$, invert] (0,2)
+            to[R, l^=$100\ \Omega$] (3,2) to[short, -o] (5,2);
+            \draw (3,2) to[R, l^=$P\ \Omega$] (3,0)
+            -- (0,0);
+            \draw (3,0) to[short, -o] (5,0);
+        \end{circuitikz}
+        \caption{Schematic Circuit Diagram to Measure the Output of PT-100 ($P$).}
+        \label{fig:ckt}
+    \end{figure}
+\end{frame}
+
+%Explain why R =100 is being used
+\begin{frame}{Why R = 100 $\Omega$?}
+    \begin{enumerate}
+        \item Source voltage V = 3.3Volt
+        \item The most common type (PT100) has a resistance (P) of 100 $\Omega$ at 0$^\circ$ C and 138.4 $\Omega$ at 100 $^\circ$ C.
+        \item So for any R we use voltage drop accross R will be, $\frac{VP}{P + R}$
+        \item In terms of sensorvalue, $\frac{Sensorvalue \times P}{P + R} \times \frac{3.3}{1023}$
+        \item So it we use very large R compared to P, the voltage drop will be very small even for signficant change in sensorvalue/Temperature.
+        \item That's why we use R = 100 $\Omega$, a comparable value to P. 
+    \end{enumerate} 
+\end{frame}
+
+\begin{frame}{Experiment}
+    \begin{figure}[!ht]
+         \centering
+         \includegraphics[width=0.6\columnwidth]{figs/circuit.jpg}
+     \end{figure}
+     PT-100 circuit is connected to arduino 3.3V and ground pins. The 200$\Omega$ resistor is being used in circuit. The voltage/sensorvalue is read from A0 pin of arduino.
+ \end{frame}
+
+ \begin{frame}{Experiment}
+    \begin{figure}[!ht]
+         \centering
+            \includegraphics[width=0.6\columnwidth]{figs/lcdcircuit.png}
+     \end{figure}
+        This is the LCD circuit which is used to display the temperature readings.
+\end{frame}
+\begin{frame}{Experiment}
+    \begin{figure}[!ht]
+         \centering
+            \includegraphics[width=0.6\columnwidth]{figs/lcdsetup.jpg}
+     \end{figure}
+        This is the LCD circuit which is used to display the temperature readings.
+\end{frame}
+
 \section{Data}
 \begin{frame}{Training data}
     \begin{table}[ht!]
         \input{tables/training_data.tex}
-        \caption{Training data}
         \label{tab:Training data}
     \end{table}
 \end{frame}
@@ -120,63 +171,61 @@ columns=fullflexible
     \begin{table}[!ht]
         \centering
         \input{tables/validation_data.tex}
-        \caption{Validation data}
         \label{tab:Validation data}
     \end{table}
 \end{frame}
 
-\begin{frame}{Experiment}
-    \begin{figure}[!ht]
-         \centering
-         \includegraphics[width=0.6\columnwidth]{figs/setup.jpg}
-     \end{figure}
-     PT-100 circuit is connected to arduino 3.3V and ground pins. The 200$\Omega$ resistor is being used in circuit. The voltage/sensorvalue is read from A0 pin of arduino.
- \end{frame}
-
 \section{Model}
 \begin{frame}{Model}
-    For the PT-100, we use the Callendar-Van Dusen equation
+    The voltage reding for arduino varies as per temperature. The voltage reading can be modelled as
     \begin{align}
-        V(T)       = V(0)\brak{1+AT+BT^2} \\
-        \text{this can be written in the form of } c  = \vec{n}^\top\vec{x}  \\
-        c = V(T),\ \vec{n} = V(0)\myvec{1   \\A\\B},\ \vec{x} = \myvec{1\\T\\T^2}
+        V(T)       =  A + BT \\
+        \text{this can be written in the form of } y  = \vec{x}^\top\vec{n}  \\
+        y = V(T), \vec{n} = \myvec{A\\B}, \vec{x} = \myvec{1\\T}
     \end{align}
 \end{frame}
 
 \begin{frame}{Model}
     For multiple points,eqn (3) becomes
     \begin{align}
-        \vec{X}^\top\vec{n} = \vec{C}                   \\
-        \vec{X} & = \myvec{1           & 1 & \ldots & 1 \\T_1&T_2&\ldots&T_n\\T_1^2&T_2^2&\ldots&T_n^2} \\
-        \vec{C} & = \myvec{V\brak{T_1}                  \\V\brak{T_2}\\\vdots\\V\brak{T_n}}
+        \vec{X}^\top\vec{n} &= \vec{Y}                   \\
+        \vec{X} & = \myvec{1           & 1 & \ldots & 1 \\T_1&T_2&\ldots&T_n} \\
+        \vec{Y} & = \myvec{V\brak{T_1}                  \\V\brak{T_2}\\\vdots\\V\brak{T_n}}\\
+        \vec{n} &= \myvec{A\\B}
     \end{align}
-    and $\vec{n}$ is the unknown.
+    Here $\vec{n}$ is the unknown, $\vec{X}$ and $\vec{Y}$ are readings.
 \end{frame}
 
 \begin{frame}{Model}
     We approximate $\vec{n}$ by using the least sqaures method. The Python code
-    \texttt{codes/pt100.py} solves for $\vec{n}$.
+    \texttt{codes/lsq.py} solves for $\vec{n}$.
     The calculated value of $\vec{n}$ is
     \begin{align}
-        \vec{n} = \myvec{1.423 \\1.472\times10^{-3}\\9.8158\times10^{-6}}
+        \vec{n} = \myvec{1.48 \\ 0.0029}
+    \end{align}
+    The linear model between temperature and voltage is given by
+    \begin{align}
+        V(T) = 1.48 + 0.0029T
     \end{align}
 \end{frame}
 
-\begin{frame}{Model}
-Thus, the approximate model is given by
-\begin{align}
-    V(T) & = 1.423 + \brak{1.472\times10^{-3}}T \nonumber \\
-         & + \brak{9.8158\times10^{-6}}T^2
-\end{align}
-
-Equation 8 is in the form of,
-\begin{align}
-    ax^2 + bx + c=0 
-\end{align}
-
-Now, we can use the quadratic formula to find the value of the temperature.
-This has been implemented in arduino.
-
+\section{Data visulization}
+\begin{frame}{Data visulization}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.6\columnwidth]{figs/train.png}
+        \caption{Training data}
+        \label{fig:Training data}
+    \end{figure}
 \end{frame}
 
+\begin{frame}{Data visulization}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.6\columnwidth]{figs/test.png}
+        \caption{Validation data}
+        \label{fig:Validation data}
+    \end{figure}
+
+\end{frame}
 \end{document}

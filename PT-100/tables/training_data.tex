@@ -65,7 +65,7 @@
        \usepackage{hhline}
        \usepackage{ifthen}
 
-	\begin{document}
+\begin{document}
 
 
 %%  End of the preamble for the standalone. The next section is for %%
@@ -74,7 +74,7 @@
 
 %%  We are not a stand alone document. For a regular table, we will %%
 %%  have no preamble and only define the closing to mean nothing.   %%
-    \def\gnumericTableEnd{}
+\def\gnumericTableEnd{}
 
 %%  If we want landscape mode in an embedded document, comment out  %%
 %%  the line above and uncomment the two below. The table will      %%
@@ -93,20 +93,20 @@
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\providecommand{\gnumericmathit}[1]{#1} 
+\providecommand{\gnumericmathit}[1]{#1}
 %%  Uncomment the next line if you would like your numbers to be in %%
 %%  italics if they are italizised in the gnumeric table.           %%
 %\renewcommand{\gnumericmathit}[1]{\mathit{#1}}
 \providecommand{\gnumericPB}[1]%
 {\let\gnumericTemp=\\#1\let\\=\gnumericTemp\hspace{0pt}}
- \ifundefined{gnumericTableWidthDefined}
-        \newlength{\gnumericTableWidth}
-        \newlength{\gnumericTableWidthComplete}
-        \newlength{\gnumericMultiRowLength}
-        \global\def\gnumericTableWidthDefined{}
- \fi
+\ifundefined{gnumericTableWidthDefined}
+\newlength{\gnumericTableWidth}
+\newlength{\gnumericTableWidthComplete}
+\newlength{\gnumericMultiRowLength}
+\global\def\gnumericTableWidthDefined{}
+\fi
 %% The following setting protects this code from babel shorthands.  %%
- \ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{english}}
+\ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{english}}
 %%  The default table format retains the relative column widths of  %%
 %%  gnumeric. They can easily be changed to c, r or l. In that case %%
 %%  you may want to comment out the next line and uncomment the one %%
@@ -126,15 +126,15 @@
 	101pt+%
 	69pt+%
 	67pt+%
-0pt}
+	0pt}
 \def\gumericNumCols{3}
 \setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
-         \tabcolsep*\gumericNumCols*2+\arrayrulewidth*\gumericNumCols}
+	\tabcolsep*\gumericNumCols*2+\arrayrulewidth*\gumericNumCols}
 \ifthenelse{\lengthtest{\gnumericTableWidthComplete > \linewidth}}%
-         {\def\gnumericScale{1*\ratio{\linewidth-%
-                        \tabcolsep*\gumericNumCols*2-%
-                        \arrayrulewidth*\gumericNumCols}%
-{\gnumericTableWidth}}}%
+{\def\gnumericScale{1*\ratio{\linewidth-%
+			\tabcolsep*\gumericNumCols*2-%
+			\arrayrulewidth*\gumericNumCols}%
+		{\gnumericTableWidth}}}%
 {\def\gnumericScale{1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,121 +150,135 @@
 \ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{67pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{tabular}[c]{%
-	b{\gnumericColA}%
-	b{\gnumericColB}%
-	b{\gnumericColC}%
+		b{\gnumericColA}%
+		b{\gnumericColB}%
+		b{\gnumericColC}%
 	}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  The longtable options. (Caption, headers... see Goosens, p.124) %%
-%	\caption{The Table Caption.}             \\	%
-% \hline	% Across the top of the table.
-%%  The rest of these options are table rows which are placed on    %%
-%%  the first, last or every page. Use \multicolumn if you want.    %%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%  The longtable options. (Caption, headers... see Goosens, p.124) %%
+	%	\caption{The Table Caption.}             \\	%
+	% \hline	% Across the top of the table.
+	%%  The rest of these options are table rows which are placed on    %%
+	%%  the first, last or every page. Use \multicolumn if you want.    %%
 
-%%  Header for the first page.                                      %%
-%	\multicolumn{3}{c}{The First Header} \\ \hline 
-%	\multicolumn{1}{c}{colTag}	%Column 1
-%	&\multicolumn{1}{c}{colTag}	%Column 2
-%	&\multicolumn{1}{c}{colTag}	\\ \hline %Last column
-%	\endfirsthead
+	%%  Header for the first page.                                      %%
+	%	\multicolumn{3}{c}{The First Header} \\ \hline 
+	%	\multicolumn{1}{c}{colTag}	%Column 1
+	%	&\multicolumn{1}{c}{colTag}	%Column 2
+	%	&\multicolumn{1}{c}{colTag}	\\ \hline %Last column
+	%	\endfirsthead
 
-%%  The running header definition.                                  %%
-%	\hline
-%	\multicolumn{3}{l}{\ldots\small\slshape continued} \\ \hline
-%	\multicolumn{1}{c}{colTag}	%Column 1
-%	&\multicolumn{1}{c}{colTag}	%Column 2
-%	&\multicolumn{1}{c}{colTag}	\\ \hline %Last column
-%	\endhead
+	%%  The running header definition.                                  %%
+	%	\hline
+	%	\multicolumn{3}{l}{\ldots\small\slshape continued} \\ \hline
+	%	\multicolumn{1}{c}{colTag}	%Column 1
+	%	&\multicolumn{1}{c}{colTag}	%Column 2
+	%	&\multicolumn{1}{c}{colTag}	\\ \hline %Last column
+	%	\endhead
 
-%%  The running footer definition.                                  %%
-%	\hline
-%	\multicolumn{3}{r}{\small\slshape continued\ldots} \\
-%	\endfoot
+	%%  The running footer definition.                                  %%
+	%	\hline
+	%	\multicolumn{3}{r}{\small\slshape continued\ldots} \\
+	%	\endfoot
 
-%%  The ending footer definition.                                   %%
-%	\multicolumn{3}{c}{That's all folks} \\ \hline 
-%	\endlastfoot
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%  The ending footer definition.                                   %%
+	%	\multicolumn{3}{c}{That's all folks} \\ \hline 
+	%	\endlastfoot
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\hhline{|-|-~}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-     {\gnumericPB{\raggedright}\gnumbox[l]{\textbf{Temperature ($^{\circ}$C)}}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
+	\hhline{|-|-~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedright}\gnumbox[l]{\textbf{Temperature ($^{\circ}$C)}}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
 	{\gnumericPB{\raggedright}\gnumbox[l]{\textbf{Voltage (V)}}}
-	&
-\\
-\hhline{|--|~}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{20}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{1.46}}
-	&
-\\
-\hhline{|--|~}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{33}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{1.48}}
-	&
-\\
-\hhline{|--|~}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{44}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{1.50}}
-	&
-\\
-\hhline{|--|~}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{50}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{16}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
 	{\gnumericPB{\raggedleft}\gnumbox[r]{1.52}}
-	&
-\\
-\hhline{|--|~}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{56}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{21}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
 	{\gnumericPB{\raggedleft}\gnumbox[r]{1.54}}
-	&
-\\
-\hhline{|--|~}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{61}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{1.55}}
-	&
-\\
-\hhline{|--|~}
-	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{67}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{25}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
+	{\gnumericPB{\raggedleft}\gnumbox[r]{1.56}}
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{33}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
 	{\gnumericPB{\raggedleft}\gnumbox[r]{1.57}}
-	&
-\\
-\hhline{|--|~}
-    \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{71}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{1.58}}
-	&
-\\
-\hhline{|--|~}
-    \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{79}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{41}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
 	{\gnumericPB{\raggedleft}\gnumbox[r]{1.60}}
-	&
-\\
-\hhline{|--|~}
-    \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{84}}
-	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{1.61}}
-	&
-\\
-\hhline{|--|~}
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{48}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
+	{\gnumericPB{\raggedleft}\gnumbox[r]{1.62}}
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{53}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
+	{\gnumericPB{\raggedleft}\gnumbox[r]{1.63}}
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{61}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
+	{\gnumericPB{\raggedleft}\gnumbox[r]{1.65}}
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{70}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
+	{\gnumericPB{\raggedleft}\gnumbox[r]{1.69}}
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{78}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
+	{\gnumericPB{\raggedleft}\gnumbox[r]{1.70}}
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{81}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
+	{\gnumericPB{\raggedleft}\gnumbox[r]{1.72}}
+	 &
+	\\
+	\hhline{|--|~}
+	\multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\raggedleft}\gnumbox[r]{90}}
+	 & \multicolumn{1}{p{\gnumericColB}|} %
+	{\gnumericPB{\raggedleft}\gnumbox[r]{1.74}}
+	 &
+	\\
+	\hhline{|--|~}
 \end{tabular}
 
 \ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{\languagename}}
